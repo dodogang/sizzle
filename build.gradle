@@ -1,0 +1,252 @@
+buildscript {
+    repositories {
+        maven { url = 'https://files.minecraftforge.net/maven' }
+        maven { url = 'https://maven.shadew.net/' }
+        jcenter()
+        mavenCentral()
+    }
+    dependencies {
+        classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '3+', changing: true
+        classpath group: 'net.shadew', name: 'modutil', version: '1.0-beta.10'
+    }
+}
+
+// ==================
+// ALL PROJECTS SETUP
+// ==================
+
+allprojects {
+    project.ext.implName = "Sizzle"
+
+    apply plugin: 'net.minecraftforge.gradle'
+    apply plugin: 'net.shadew.modutil'
+    apply plugin: 'idea'
+    apply plugin: 'maven-publish'
+    apply plugin: 'signing'
+    apply from: "$rootDir/environment.gradle"
+
+    minecraft {
+        // Snapshot mappings: March 22, 2020, v1.15.1
+        mappings channel: 'snapshot', version: '20201003-mixed-1.16.3'
+
+        // Access transformer
+        accessTransformer = file("$rootDir/SizzleCore/src/main/resources/META-INF/accesstransformer.cfg")
+    }
+
+    modutil {
+        shade('net.shadew.ptg', 'net.dodogang.sizzle.internal.net.shadew.ptg')
+        shade('net.shadew.util', 'net.dodogang.sizzle.internal.net.shadew.util')
+
+        changelogJson file("$rootDir/changelog.json")
+
+        constant('mod_id', project.ext.modid)
+        constant('mod_name', project.ext.implName)
+        constant('version', changelogInfo.versionNumber)
+        constant('version_name', changelogInfo.versionName)
+        constant('group', project.group)
+        constant('build_time', project.ext.timeOfExecution)
+        constant('sha1') {
+            !project.canJarBeSigned() ? "NO:FI:NG:ER:PR:IN:TA:VA:IL:AB:LE" : project.getProjectFingerprint()
+        }
+        constant('signed') {
+            return project.canJarBeSigned()
+        }
+
+        constantAnnotation 'net.dodogang.sizzle.DynamicConstant'
+    }
+
+    repositories {
+        mavenLocal()
+        mavenCentral()
+        maven {
+            name = "Progwml6 maven"
+            url = "https://dvs1.progwml6.com/files/maven/"
+        }
+        maven {
+            name = "Shadew's Maven"
+            url = "http://maven.shadew.net/"
+        }
+        maven {
+            name = "tterrag's maven"
+            url = "https://maven.tterrag.com/"
+        }
+    }
+
+    configurations {
+        embed // External deps embedded into the JAR file
+        compile.extendsFrom(embed)
+    }
+
+    dependencies {
+        minecraft 'net.minecraftforge:forge:1.16.3-34.1.0'
+
+        embed("net.shadew:ptg:1.2.2") {
+            transitive false
+        }
+
+        embed "net.shadew:shwutil:1.4.0"
+
+        compileOnly fg.deobf("mezz.jei:jei-1.16.3:7.3.2.36:api")
+        runtimeOnly fg.deobf("mezz.jei:jei-1.16.3:7.3.2.36")
+
+        compileOnly fg.deobf("com.github.glitchfiend:biomesoplenty:1.16.3-12.0.0.404:api-obf")
+        compile fg.deobf("com.github.glitchfiend:biomesoplenty:1.16.3-12.0.0.404:universal-obf")
+    }
+
+    jar {
+        doFirst {
+            // Include necessary dependencies
+            from configurations.embed.collect { it.isDirectory() ? it : zipTree(it) }
+        }
+
+        manifest {
+            attributes(
+                [
+                    "Specification-Title"     : "Sizzle",
+                    "Specification-Vendor"    : "DodoGang",
+                    "Specification-Version"   : "${version}",
+                    "Implementation-Title"    : project.ext.implName,
+                    "Implementation-Version"  : "${version}",
+                    "Implementation-Vendor"   : "DodoGang",
+                    "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
+                ]
+            )
+        }
+    }
+
+    apply from: "$rootDir/gen_sources.gradle"
+}
+
+
+
+// ==================
+// ROOT PROJECT SETUP
+// ==================
+
+// We should not build anything in the root project so we remove all building tasks and only build the necessary
+// subprojects. We only use the root project for running.
+build {
+    dependsOn.clear()
+
+    dependsOn ':SizzleAPI:build'
+    dependsOn ':SizzleCore:build'
+    dependsOn ':SizzleMod:build'
+    dependsOn ':SizzleTest:build'
+}
+
+
+// Configure run configurations only for root project
+minecraft {
+    runs {
+        client {
+            workingDirectory project.file('run/client')
+
+            property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
+            property 'forge.logging.console.level', 'info'
+            property 'sizzle.env.ide', 'true'
+
+            mods {
+                sizzle {
+                    source sourceSets.main
+                }
+            }
+        }
+
+        server {
+            workingDirectory project.file('run/server')
+
+            property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
+            property 'forge.logging.console.level', 'info'
+            property 'sizzle.env.ide', 'true'
+
+            mods {
+                sizzle {
+                    source sourceSets.main
+                }
+            }
+        }
+    }
+}
+
+modutil {
+    updateJson file('versioninfo/update.json')
+    markdownChangelog file('versioninfo/latest_changelog.md')
+    markdownChangelog file("versioninfo/${changelogInfo.versionNumber}_changelog.md")
+}
+
+
+// Depend on all subprojects
+dependencies {
+    embed(project(':SizzleAPI')) {
+        transitive false
+    }
+    embed(project(':SizzleCore')) {
+        transitive false
+    }
+    embed(project(':SizzleMod')) {
+        transitive false
+    }
+    embed(project(':SizzleTest')) {
+        transitive false
+    }
+}
+
+// Collect classes and resources from other projects so that running includes all classes
+task collectClasses(type: Copy) {
+    dependsOn ':SizzleAPI:classes'
+    dependsOn ':SizzleCore:classes'
+    dependsOn ':SizzleMod:classes'
+    dependsOn ':SizzleTest:classes'
+
+    outputs.upToDateWhen { t -> false }
+
+    doFirst {
+        delete "$buildDir/classes/java/main"
+        file("$buildDir/classes/java/main").mkdirs()
+    }
+
+    configurations.collectMany {
+        it.allDependencies
+    }.findAll {
+        it instanceof ProjectDependency
+    }.each {
+        ProjectDependency dep = (ProjectDependency) it
+        from("$dep.dependencyProject.buildDir/classes/java/main")
+    }
+
+    into("$buildDir/classes/java/main")
+}
+
+compileJava {
+    dependsOn 'collectClasses'
+}
+
+
+task collectResources(type: Copy) {
+    dependsOn ':SizzleAPI:classes'
+    dependsOn ':SizzleCore:classes'
+    dependsOn ':SizzleMod:classes'
+    dependsOn ':SizzleTest:classes'
+
+    doFirst {
+        delete "$buildDir/resources/main"
+        file("$buildDir/resources/main").mkdirs()
+    }
+
+    outputs.upToDateWhen { t -> false }
+
+    configurations.collectMany {
+        it.allDependencies
+    }.findAll {
+        it instanceof ProjectDependency
+    }.each {
+        ProjectDependency dep = (ProjectDependency) it
+        from("$dep.dependencyProject.buildDir/resources/main")
+    }
+
+    into("$buildDir/resources/main")
+}
+
+processResources {
+    dependsOn 'collectResources'
+}

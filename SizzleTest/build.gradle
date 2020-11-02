@@ -1,0 +1,22 @@
+dependencies {
+    embed( project( ':SizzleAPI' ) ) {
+        transitive false
+    }
+    embed( project( ':SizzleCore' ) ) {
+        transitive false
+    }
+    embed( project( ':SizzleMod' ) ) {
+        transitive false
+    }
+}
+
+archivesBaseName = project.ext.getVariable( "sizzle.testname" )
+
+project.ext.implName = "Sizzle Test"
+project.ext.isIDE = true
+
+task signJar( dependsOn: 'reobfJar' ) {
+    doLast {
+        project.ext.sign( jar.archivePath )
+    }
+}

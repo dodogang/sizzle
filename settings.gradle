@@ -1,0 +1,6 @@
+rootProject.name = 'Sizzle'
+
+include 'SizzleAPI'
+include 'SizzleCore'
+include 'SizzleMod'
+include 'SizzleTest'

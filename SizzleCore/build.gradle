@@ -1,0 +1,9 @@
+dependencies {
+    embed( project( ':SizzleAPI' ) ) {
+        transitive false
+    }
+}
+
+archivesBaseName = project.ext.getVariable( "sizzle.corename" )
+
+project.ext.implName = "Sizzle Core"

@@ -1,0 +1,3 @@
+archivesBaseName = project.ext.getVariable( "sizzle.apiname" )
+
+project.ext.implName = "Sizzle API"

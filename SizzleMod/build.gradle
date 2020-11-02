@@ -1,0 +1,56 @@
+dependencies {
+    embed( project( ':SizzleAPI' ) ) {
+        transitive false
+    }
+    embed( project( ':SizzleCore' ) ) {
+        transitive false
+    }
+}
+
+apply from: 'universal.gradle'
+apply from: 'client.gradle'
+apply from: 'server.gradle'
+
+project.ext.implName = "Sizzle"
+
+build {
+    dependsOn 'signJar'
+    dependsOn 'signClientJar'
+    dependsOn 'signServerJar'
+}
+
+sourceSets {
+    main {
+        resources {
+            srcDirs += "src/generated/resources"
+        }
+    }
+}
+
+
+task genData(type: JavaExec) {
+    dependsOn ':SizzleAPI:compileJava'
+    dependsOn ':SizzleCore:compileJava'
+    dependsOn 'compileJava'
+
+    // We must give the classpath as a raw path, otherwise gradle adds :classes as a dependency to this task. Since we
+    // are a dependency of :classes itself this causes a circular dependency and therefore we must not have :classes as
+    // dependency. Make sure not to use 'sourceSets.main.runtimeClasspath' or something relevant here
+    classpath files("$rootDir/SizzleAPI/build/classes/java/main")         \
+                   + files("$rootDir/SizzleCore/build/classes/java/main") \
+                   + files("$rootDir/SizzleMod/build/classes/java/main")  \
+                   + configurations.runtime
+
+    main "net.dodogang.sizzle.data.DataGen"
+    args(
+        "--all",
+        "--output", "$projectDir/src/generated/resources",
+        "--gameDir", "."
+    )
+    workingDir file("$rootDir/run")
+}
+
+processResources {
+    if (!System.getenv().containsKey("SKIP_DATAGEN"))
+        dependsOn 'genData'
+}

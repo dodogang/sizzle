@@ -1,0 +1,76 @@
+// @formatter:off
+version                     = getVariable("sizzle.version")
+group                       = getVariable("sizzle.group")
+archivesBaseName            = getVariable("sizzle.modname")
+
+sourceCompatibility                         \
+    = targetCompatibility                   \
+    = tasks.compileJava.sourceCompatibility \
+    = tasks.compileJava.targetCompatibility \
+    = '1.8'
+
+ext {
+    SYSENV          = System.getenv()
+    modid           = getVariable("sizzle.modname")
+    versionName     = getVariable("sizzle.version.name")
+    isIDE           = isIDE()
+
+    // Make sure you have these properties declared in your computer's gradle.properties file.
+    // It may be any token, as long as that token has the read:packages permission granted.
+    gprUser         = getVariable("gprUser")
+    gprKey          = getVariable("gprKey")
+
+    timeOfExecution = new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
+}
+
+def canJarBeSigned() {
+    return getVariable('sizzleKeyStore') != null && !project.ext.isIDE
+}
+
+// Returns the public fingerprint, may be empty ("")
+def getProjectFingerprint() {
+    if (canJarBeSigned()) {
+        return getVariable('sizzleSignSHA1').replaceAll(':', '').toLowerCase()
+    }
+    return ''
+}
+
+// Attempts to get a project variable and if none is found it tries to read from a system environment variable
+String getVariable(String key) {
+    return rootProject.hasProperty(key)
+           ? rootProject.property(key)
+           : project.ext.SYSENV.containsKey(key)
+             ? project.ext.SYSENV[key]
+             : System.getProperty(key)
+}
+
+boolean isIDE() {
+    return project.ext.SYSENV.containsKey("IDE")
+           ? Boolean.parseBoolean(project.ext.SYSENV["IDE"] as String)
+           : true
+}
+
+// Signs a jar file
+def sign(File jar) {
+    if (canJarBeSigned()) {
+        ant.signjar(
+            destDir:   "${jar.parentFile}",
+            jar:       "${jar}",
+            alias:     getVariable('sizzleKeyStoreAlias'),
+            storetype: "jks",
+            keystore:  getVariable("sizzleKeyStore"),
+            storepass: getVariable('sizzleKeyStorePass'),
+            keypass:   getVariable('sizzleKeyStoreKeyPass'),
+            verbose:   true,
+            preservelastmodified: "true"
+        )
+        println "Jar signed: ${jar}"
+    } else {
+        println "No keystore property found, jar will not be signed"
+    }
+}
+
+project.ext.getVariable = { String key -> return getVariable(key) }
+project.ext.canJarBeSigned = { return canJarBeSigned() }
+project.ext.getProjectFingerprint = { return getProjectFingerprint() }
+project.ext.sign = { File jar -> return sign(jar) }

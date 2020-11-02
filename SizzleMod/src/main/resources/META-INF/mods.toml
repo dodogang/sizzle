@@ -1,0 +1,31 @@
+modLoader = "javafml"
+loaderVersion = "[34.1,)"
+issueTrackerURL = "https://github.com/dodogang/sizzle/issues"
+license = "All rights reserved."
+
+[[mods]]
+modId = "sizzle"
+version = "${version}"
+displayName = "Sizzle"
+updateJSONURL = "https://raw.githubusercontent.com/dodogang/sizzle/forge/1.16.3/update.json"
+#displayURL="http://example.com/"
+#logoFile="examplemod.png"
+credits = "Copyright (c) 2020 DodoGang and contributors."
+authors = "DodoGang"
+description = """\
+TODO
+"""
+
+[[dependencies.sizzle]]
+modId = "forge"
+mandatory = false
+versionRange = "[34.1.0,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.sizzle]]
+modId = "minecraft"
+mandatory = false
+versionRange = "[1.16.3]"
+ordering = "NONE"
+side = "BOTH"

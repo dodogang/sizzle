@@ -1,0 +1,14 @@
+{
+  "version": {
+    "number": "1.0-alpha.0",
+    "name": "The first update",
+    "minecraft": "1.16.3",
+    "stable": false
+  },
+  "description": [
+    "The first release of Sizzle"
+  ],
+  "changelog": [
+    "Added everything"
+  ]
+}

@@ -1,0 +1,11 @@
+jar {
+    appendix = "universal"
+
+    exclude( "net/dodogang/sizzle/data/**" )
+}
+
+task signJar( dependsOn: 'reobfJar' ) {
+    doLast {
+        project.ext.sign( jar.archivePath )
+    }
+}
