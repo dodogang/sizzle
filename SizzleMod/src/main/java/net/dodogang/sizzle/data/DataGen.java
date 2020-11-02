@@ -11,6 +11,8 @@ package net.dodogang.sizzle.data;
 import joptsimple.OptionParser;
 import joptsimple.OptionSet;
 import joptsimple.OptionSpec;
+import net.dodogang.sizzle.common.block.SzBlocks;
+import net.dodogang.sizzle.common.item.SzItems;
 import net.dodogang.sizzle.data.loottables.SizzleLootTableProvider;
 import net.dodogang.sizzle.data.models.SizzleStateModelProvider;
 import net.dodogang.sizzle.data.recipes.SizzleRecipeProvider;
@@ -18,8 +20,12 @@ import net.dodogang.sizzle.data.recipes.SizzleStonecuttingRecipeProvider;
 import net.dodogang.sizzle.data.tags.SizzleBlockTagsProvider;
 import net.dodogang.sizzle.data.tags.SizzleFluidTagsProvider;
 import net.dodogang.sizzle.data.tags.SizzleItemTagsProvider;
+import net.dodogang.sizzle.util.IRegistry;
+import net.minecraft.block.Block;
 import net.minecraft.data.DataGenerator;
+import net.minecraft.item.Item;
 import net.minecraft.util.registry.Bootstrap;
+import net.minecraft.util.registry.Registry;
 
 import java.io.File;
 import java.io.IOException;
@@ -86,12 +92,12 @@ public final class DataGen {
         // registries and imitate Forge's ObjectHolder using ObjectHolderHacks. Sounds dangerous, but it works and is
         // much faster. At last this only runs from the IDE :)
 
-        // SizzleBlocks.registerBlocks(IRegistry.vanilla(Registry.BLOCK));
-        // ObjectHolderHacks.hackObjectHolder(SizzleBlocks.class, Registry.BLOCK, Block.class);
+        SzBlocks.registerBlocks(IRegistry.vanilla(Registry.BLOCK));
+        ObjectHolderHacks.hackObjectHolder(SzBlocks.class, Registry.BLOCK, Block.class);
 
-        // SizzleBlocks.registerItems(IRegistry.vanilla(Registry.ITEM));
-        // SizzleItems.registerItems(IRegistry.vanilla(Registry.ITEM));
-        // ObjectHolderHacks.hackObjectHolder(SizzleItems.class, Registry.ITEM, Item.class);
+        SzBlocks.registerItems(IRegistry.vanilla(Registry.ITEM));
+        SzItems.registerItems(IRegistry.vanilla(Registry.ITEM));
+        ObjectHolderHacks.hackObjectHolder(SzItems.class, Registry.ITEM, Item.class);
 
         // SizzleSoundEvents.registerSoundEvents(IRegistry.vanilla(Registry.SOUND_EVENT));
     }

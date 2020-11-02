@@ -1,5 +1,6 @@
 package net.dodogang.sizzle.data.models;
 
+import net.dodogang.sizzle.common.block.SzBlocks;
 import net.dodogang.sizzle.data.models.modelgen.IModelGen;
 import net.dodogang.sizzle.data.models.stategen.*;
 import net.minecraft.block.Block;
@@ -18,7 +19,7 @@ public final class BlockStateTable {
     public static void registerBlockStates(BiConsumer<Block, IBlockStateGen> c) {
         consumer = c;
 
-
+        register(SzBlocks.BASALTALLSIDES, block -> simple(name(block, "block/%s"), cubeAll("block/basalt_top")));
     }
 
     private static IBlockStateGen simple(String name, IModelGen model) {

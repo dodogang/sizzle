@@ -1,5 +1,6 @@
 package net.dodogang.sizzle.data.models;
 
+import net.dodogang.sizzle.common.block.SzBlocks;
 import net.dodogang.sizzle.data.models.modelgen.IModelGen;
 import net.minecraft.item.Item;
 import net.minecraft.util.IItemProvider;
@@ -8,12 +9,15 @@ import net.minecraft.util.ResourceLocation;
 import java.util.function.BiConsumer;
 import java.util.function.Function;
 
+import static net.dodogang.sizzle.data.models.modelgen.InheritingModelGen.*;
+
 public final class ItemModelTable {
     private static BiConsumer<Item, IModelGen> consumer;
 
     public static void registerItemModels(BiConsumer<Item, IModelGen> c) {
         consumer = c;
 
+        register(SzBlocks.BASALTALLSIDES, item -> inherit(name(item, "block/%s")));
     }
 
 

@@ -1,5 +1,6 @@
 package net.dodogang.sizzle.data.loottables;
 
+import net.dodogang.sizzle.common.block.SzBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.data.loot.BlockLootTables;
 import net.minecraft.loot.ConstantRange;
@@ -19,6 +20,7 @@ public class SizzleBlockLootTables extends BlockLootTables {
 
     @Override
     protected void addTables() {
+        registerDropSelfLootTable(SzBlocks.BASALTALLSIDES);
     }
 
     @Override
