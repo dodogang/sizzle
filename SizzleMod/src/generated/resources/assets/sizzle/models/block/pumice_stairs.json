@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/stairs",
+  "textures": {
+    "bottom": "sizzle:block/pumice",
+    "top": "sizzle:block/pumice",
+    "side": "sizzle:block/pumice"
+  }
+}

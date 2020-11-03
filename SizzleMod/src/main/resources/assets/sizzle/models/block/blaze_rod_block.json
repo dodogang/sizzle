@@ -1,0 +1,24 @@
+{
+	"parent": "block/block",
+	"textures": {
+		"side_alt": "sizzle:block/blaze_rod_block_alt",
+		"bottom": "sizzle:block/blaze_rod_block_bottom",
+		"top": "sizzle:block/blaze_rod_block_top",
+		"particle": "sizzle:block/blaze_rod_block",
+		"side": "sizzle:block/blaze_rod_block"
+	},
+	"elements": [
+		{
+			"from": [0, 0, 0],
+			"to": [16, 16, 16],
+			"faces": {
+				"north": { "uv": [0, 0, 16, 16], "texture": "#side", "cullface": "north" },
+				"east": { "uv": [0, 0, 16, 16], "texture": "#side_alt", "cullface": "east" },
+				"south": { "uv": [0, 0, 16, 16], "texture": "#side_alt", "cullface": "south" },
+				"west": { "uv": [0, 0, 16, 16], "texture": "#side", "cullface": "west" },
+				"up": { "uv": [0, 0, 16, 16], "texture": "#top", "cullface": "up" },
+				"down": { "uv": [0, 0, 16, 16], "rotation": 90, "texture": "#bottom", "cullface": "down" }
+			}
+		}
+	]
+}

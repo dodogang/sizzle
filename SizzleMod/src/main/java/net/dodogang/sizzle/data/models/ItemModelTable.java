@@ -17,7 +17,15 @@ public final class ItemModelTable {
     public static void registerItemModels(BiConsumer<Item, IModelGen> c) {
         consumer = c;
 
-        register(SzBlocks.BASALTALLSIDES, item -> inherit(name(item, "block/%s")));
+        register(SzBlocks.BLAZE_ROD_BLOCK, item -> inherit(name(item, "block/%s")));
+        register(SzBlocks.PUMICE, item -> inherit(name(item, "block/%s")));
+        register(SzBlocks.POLISHED_PUMICE, item -> inherit(name(item, "block/%s")));
+        register(SzBlocks.PUMICE_SLAB, item -> inherit(name(item, "block/%s")));
+        register(SzBlocks.POLISHED_PUMICE_SLAB, item -> inherit(name(item, "block/%s")));
+        register(SzBlocks.PUMICE_STAIRS, item -> inherit(name(item, "block/%s")));
+        register(SzBlocks.POLISHED_PUMICE_STAIRS, item -> inherit(name(item, "block/%s")));
+        register(SzBlocks.PUMICE_WALL, item -> wallInventory(name(item, "block/%s", "_wall")));
+        register(SzBlocks.POLISHED_PUMICE_WALL, item -> wallInventory(name(item, "block/%s", "_wall")));
     }
 
 

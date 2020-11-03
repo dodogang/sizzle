@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "sizzle:pumice"
+  },
+  "result": "sizzle:polished_pumice_slab",
+  "count": 2
+}

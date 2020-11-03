@@ -4,7 +4,9 @@ import net.minecraft.block.Block;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.TagsProvider;
 import net.minecraft.item.Item;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.ITag;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.registry.Registry;
 
@@ -22,6 +24,9 @@ public class SizzleItemTagsProvider extends TagsProvider<Item> {
 
     @Override
     protected void registerTags() {
+        copy(BlockTags.SLABS, ItemTags.SLABS);
+        copy(BlockTags.STAIRS, ItemTags.STAIRS);
+        copy(BlockTags.WALLS, ItemTags.WALLS);
     }
 
 

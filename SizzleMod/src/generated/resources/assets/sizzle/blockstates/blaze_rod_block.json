@@ -1,0 +1,30 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "sizzle:block/blaze_rod_block",
+      "x": 90,
+      "y": 90
+    },
+    "facing=south": {
+      "model": "sizzle:block/blaze_rod_block",
+      "x": 90,
+      "y": 180
+    },
+    "facing=down": {
+      "model": "sizzle:block/blaze_rod_block",
+      "x": 180
+    },
+    "facing=north": {
+      "model": "sizzle:block/blaze_rod_block",
+      "x": 90
+    },
+    "facing=up": {
+      "model": "sizzle:block/blaze_rod_block"
+    },
+    "facing=west": {
+      "model": "sizzle:block/blaze_rod_block",
+      "x": 90,
+      "y": 270
+    }
+  }
+}

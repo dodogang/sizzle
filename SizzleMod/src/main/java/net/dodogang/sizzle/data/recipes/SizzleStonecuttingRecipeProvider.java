@@ -5,6 +5,7 @@ import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;
 import com.mojang.datafixers.util.Pair;
 import net.dodogang.sizzle.common.Sizzle;
+import net.dodogang.sizzle.common.block.SzBlocks;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.IFinishedRecipe;
 import net.minecraft.data.RecipeProvider;
@@ -42,6 +43,13 @@ public class SizzleStonecuttingRecipeProvider extends RecipeProvider {
     protected void registerRecipes(Consumer<IFinishedRecipe> consumer) {
         this.consumer = consumer;
 
+        register(SzBlocks.PUMICE, SzBlocks.POLISHED_PUMICE);
+        register(SzBlocks.PUMICE, SzBlocks.PUMICE_SLAB, 2);
+        register(SzBlocks.PUMICE, SzBlocks.PUMICE_STAIRS);
+        register(SzBlocks.PUMICE, SzBlocks.PUMICE_WALL);
+        register(SzBlocks.POLISHED_PUMICE, SzBlocks.POLISHED_PUMICE_SLAB, 2);
+        register(SzBlocks.POLISHED_PUMICE, SzBlocks.POLISHED_PUMICE_STAIRS);
+        register(SzBlocks.POLISHED_PUMICE, SzBlocks.POLISHED_PUMICE_WALL);
 
         compile();
         flush();

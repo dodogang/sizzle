@@ -19,7 +19,15 @@ public final class BlockStateTable {
     public static void registerBlockStates(BiConsumer<Block, IBlockStateGen> c) {
         consumer = c;
 
-        register(SzBlocks.BASALTALLSIDES, block -> simple(name(block, "block/%s"), cubeAll("block/basalt_top")));
+        register(SzBlocks.BLAZE_ROD_BLOCK, block -> rotatedFacing(name(block, "block/%s"), null));
+        register(SzBlocks.PUMICE, block -> simple(name(block, "block/%s"), cubeAll(name(block, "block/%s"))));
+        register(SzBlocks.POLISHED_PUMICE, block -> simple(name(block, "block/%s"), cubeAll(name(block, "block/%s"))));
+        register(SzBlocks.PUMICE_SLAB, block -> slabRandomized(name(block, "block/%s", "_slab"), 1));
+        register(SzBlocks.POLISHED_PUMICE_SLAB, block -> slabRandomized(name(block, "block/%s", "_slab"), 1));
+        register(SzBlocks.PUMICE_STAIRS, block -> stairsRandomized(name(block, "block/%s", "_stairs"), 1));
+        register(SzBlocks.POLISHED_PUMICE_STAIRS, block -> stairsRandomized(name(block, "block/%s", "_stairs"), 1));
+        register(SzBlocks.PUMICE_WALL, block -> wallRandomized(name(block, "block/%s", "_wall"), 1));
+        register(SzBlocks.POLISHED_PUMICE_WALL, block -> wallRandomized(name(block, "block/%s", "_wall"), 1));
     }
 
     private static IBlockStateGen simple(String name, IModelGen model) {
@@ -430,6 +438,15 @@ public final class BlockStateTable {
         return VariantsBlockStateGen.variants("axis=y", ModelInfo.create(name, model).rotate(0, 0))
                                     .variant("axis=z", ModelInfo.create(name, model).rotate(90, 0))
                                     .variant("axis=x", ModelInfo.create(name, model).rotate(90, 90));
+    }
+
+    private static IBlockStateGen rotatedFacing(String name, IModelGen model) {
+        return VariantsBlockStateGen.variants("facing=up", ModelInfo.create(name, model).rotate(0, 0))
+                                    .variant("facing=north", ModelInfo.create(name, model).rotate(90, 0))
+                                    .variant("facing=east", ModelInfo.create(name, model).rotate(90, 90))
+                                    .variant("facing=south", ModelInfo.create(name, model).rotate(90, 180))
+                                    .variant("facing=west", ModelInfo.create(name, model).rotate(90, 270))
+                                    .variant("facing=down", ModelInfo.create(name, model).rotate(180, 0));
     }
 
     private static void register(Block block, Function<Block, IBlockStateGen> genFactory) {

@@ -20,7 +20,15 @@ public class SizzleBlockLootTables extends BlockLootTables {
 
     @Override
     protected void addTables() {
-        registerDropSelfLootTable(SzBlocks.BASALTALLSIDES);
+        registerDropSelfLootTable(SzBlocks.BLAZE_ROD_BLOCK);
+        registerDropSelfLootTable(SzBlocks.PUMICE);
+        registerDropSelfLootTable(SzBlocks.POLISHED_PUMICE);
+        registerLootTable(SzBlocks.PUMICE_SLAB, BlockLootTables::droppingSlab);
+        registerLootTable(SzBlocks.POLISHED_PUMICE_SLAB, BlockLootTables::droppingSlab);
+        registerDropSelfLootTable(SzBlocks.PUMICE_STAIRS);
+        registerDropSelfLootTable(SzBlocks.POLISHED_PUMICE_STAIRS);
+        registerDropSelfLootTable(SzBlocks.PUMICE_WALL);
+        registerDropSelfLootTable(SzBlocks.POLISHED_PUMICE_WALL);
     }
 
     @Override
