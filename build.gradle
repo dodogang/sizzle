@@ -1,12 +1,16 @@
+import net.minecraftforge.gradle.userdev.tasks.RenameJarInPlace
+
 buildscript {
     repositories {
         maven { url = 'https://files.minecraftforge.net/maven' }
         maven { url = 'https://maven.shadew.net/' }
+        maven { url 'https://dist.creeper.host/Sponge/maven' }
         jcenter()
         mavenCentral()
     }
     dependencies {
         classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '3+', changing: true
+        classpath group: 'org.spongepowered', name: 'mixingradle', version: '0.7-SNAPSHOT'
         classpath group: 'net.shadew', name: 'modutil', version: '1.0-beta.10'
     }
 }
@@ -19,6 +23,7 @@ allprojects {
     project.ext.implName = "Sizzle"
 
     apply plugin: 'net.minecraftforge.gradle'
+    apply plugin: 'org.spongepowered.mixin'
     apply plugin: 'net.shadew.modutil'
     apply plugin: 'idea'
     apply plugin: 'maven-publish'
@@ -31,6 +36,10 @@ allprojects {
 
         // Access transformer
         accessTransformer = file("$rootDir/SizzleCore/src/main/resources/META-INF/accesstransformer.cfg")
+    }
+
+    mixin {
+        add sourceSets.main, "midnight.refmap.json"
     }
 
     modutil {
@@ -108,9 +117,27 @@ allprojects {
                     "Implementation-Title"    : project.ext.implName,
                     "Implementation-Version"  : "${version}",
                     "Implementation-Vendor"   : "DodoGang",
-                    "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
+                    "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ"),
+                    "MixinConnector"          : "net.dodogang.sizzle.core.MixinConnector"
                 ]
             )
+        }
+    }
+
+    afterEvaluate {
+        tasks.each { mytask ->
+            if (mytask instanceof RenameJarInPlace) {
+                mytask.doFirst {
+                    project(":SizzleCore").tasks.each { task ->
+                        if (task instanceof JavaCompile) {
+                            def file = file("${task.temporaryDir}/${task.name}-mappings.tsrg")
+                            if (file.exists()) {
+                                mytask.extraMapping file
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 

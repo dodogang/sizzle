@@ -13,6 +13,10 @@ public final class TypeUtil {
     private TypeUtil() {
     }
 
+    public static boolean isInstance(Object o, Class<?> cls) {
+        return cls.isInstance(o);
+    }
+
     public static <T> T cast(Object o, Class<T> cls) {
         return cls.cast(o);
     }

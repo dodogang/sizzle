@@ -22,6 +22,7 @@ import javax.annotation.Nonnull;
 @ObjectHolder("sizzle")
 public abstract class SzBlocks {
     public static final Block BLAZE_ROD_BLOCK = inj();
+    public static final Block GHAST_JELLY_BLOCK = inj();
 
     public static final Block PUMICE = inj();
     public static final Block POLISHED_PUMICE = inj();
@@ -35,6 +36,7 @@ public abstract class SzBlocks {
     public static void registerBlocks(IRegistry<Block> registry) {
         registry.registerAll(
             blazeRodBlock("blaze_rod_block"),
+            ghastJellyBlock("ghast_jelly_block"),
 
             pumice("pumice"),
             pumice("polished_pumice"),
@@ -50,6 +52,7 @@ public abstract class SzBlocks {
     public static void registerItems(IRegistry<Item> registry) {
         registry.registerAll(
             item(BLAZE_ROD_BLOCK, ItemGroup.BUILDING_BLOCKS),
+            item(GHAST_JELLY_BLOCK, ItemGroup.DECORATIONS),
 
             item(PUMICE, ItemGroup.BUILDING_BLOCKS),
             item(POLISHED_PUMICE, ItemGroup.BUILDING_BLOCKS),
@@ -127,6 +130,20 @@ public abstract class SzBlocks {
                                     .sound(SoundType.WEEPING_VINES_LOW_PITCH)
                                     .emissiveLighting((state, world, pos) -> true)
                                     .luminance(state -> 3)
+        ));
+    }
+
+    private static Block ghastJellyBlock(String id) {
+        return block(id, new GhastJellyBlock(
+            AbstractBlock.Properties.create(SzMaterials.GHAST_JELLY, MaterialColor.WHITE_TERRACOTTA)
+                                    .hardnessAndResistance(0.7f, 0.4f)
+                                    .sound(SoundType.HONEY)
+                                    .velocityMultiplier(0.4f)
+                                    .jumpVelocityMultiplier(0.5f)
+                                    .suffocates((state, world, pos) -> false)
+                                    .blockVision((state, world, pos) -> false)
+                                    .solidBlock((state, world, pos) -> false)
+                                    .nonOpaque()
         ));
     }
 

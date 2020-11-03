@@ -30,6 +30,7 @@ public class SizzleBlockTagsProvider extends TagsProvider<Block> {
         getOrCreateTagBuilder(BlockTags.WALLS)
             .add(SzBlocks.PUMICE_WALL)
             .add(SzBlocks.POLISHED_PUMICE_WALL);
+
     }
 
     protected ITag.Builder getBuilder(ITag.INamedTag<Block> namedTag) {

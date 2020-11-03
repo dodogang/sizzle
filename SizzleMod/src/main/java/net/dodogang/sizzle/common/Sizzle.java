@@ -2,13 +2,16 @@ package net.dodogang.sizzle.common;
 
 import net.dodogang.sizzle.SizzleCore;
 import net.dodogang.sizzle.SizzleInfo;
+import net.dodogang.sizzle.api.ISizzle;
 import net.dodogang.sizzle.common.block.SzBlocks;
+import net.dodogang.sizzle.common.handler.EntityInGhastJellyHandler;
 import net.dodogang.sizzle.common.handler.RegistryHandler;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 
 public abstract class Sizzle extends SizzleCore {
     public void construct() {
+        ISizzle.eventBus().start();
         registerEventListeners();
     }
 
@@ -22,6 +25,7 @@ public abstract class Sizzle extends SizzleCore {
 
     protected void registerEventListeners() {
         FMLJavaModLoadingContext.get().getModEventBus().register(new RegistryHandler());
+        ISizzle.eventBus().register(new EntityInGhastJellyHandler());
     }
 
     /**

@@ -20,6 +20,7 @@ public final class BlockStateTable {
         consumer = c;
 
         register(SzBlocks.BLAZE_ROD_BLOCK, block -> rotatedFacing(name(block, "block/%s"), null));
+        register(SzBlocks.GHAST_JELLY_BLOCK, block -> simple(name(block, "block/%s"), cubeAll(name(block, "block/%s"))));
         register(SzBlocks.PUMICE, block -> simple(name(block, "block/%s"), cubeAll(name(block, "block/%s"))));
         register(SzBlocks.POLISHED_PUMICE, block -> simple(name(block, "block/%s"), cubeAll(name(block, "block/%s"))));
         register(SzBlocks.PUMICE_SLAB, block -> slabRandomized(name(block, "block/%s", "_slab"), 1));

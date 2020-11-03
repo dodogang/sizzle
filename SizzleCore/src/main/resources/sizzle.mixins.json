@@ -1,0 +1,11 @@
+{
+  "required": true,
+  "package": "net.dodogang.sizzle.core.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "refmap": "sizzle.refmap.json",
+  "mixins": [
+    "EntityMixin",
+    "PistonTileEntityMixin"
+  ],
+  "minVersion": "0.8.1"
+}

@@ -29,6 +29,7 @@ public class SizzleBlockLootTables extends BlockLootTables {
         registerDropSelfLootTable(SzBlocks.POLISHED_PUMICE_STAIRS);
         registerDropSelfLootTable(SzBlocks.PUMICE_WALL);
         registerDropSelfLootTable(SzBlocks.POLISHED_PUMICE_WALL);
+        registerDropSelfLootTable(SzBlocks.GHAST_JELLY_BLOCK);
     }
 
     @Override

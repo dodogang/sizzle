@@ -18,6 +18,7 @@ public final class ItemModelTable {
         consumer = c;
 
         register(SzBlocks.BLAZE_ROD_BLOCK, item -> inherit(name(item, "block/%s")));
+        register(SzBlocks.GHAST_JELLY_BLOCK, item -> inherit(name(item, "block/%s")));
         register(SzBlocks.PUMICE, item -> inherit(name(item, "block/%s")));
         register(SzBlocks.POLISHED_PUMICE, item -> inherit(name(item, "block/%s")));
         register(SzBlocks.PUMICE_SLAB, item -> inherit(name(item, "block/%s")));
