@@ -42,11 +42,11 @@ jobs:
           arguments: build --no-daemon
 
       - name: Prepare to upload the build outputs
-          env:
-            SSH_AUTH_SOCK: /tmp/ssh_agent.sock
-          run: |
-            echo "SHORT_SHA=`echo ${GITHUB_SHA} | cut -c1-8`" >> $GITHUB_ENV
-            echo "Ready to upload the build output to GitHub."
+        env:
+          SSH_AUTH_SOCK: /tmp/ssh_agent.sock
+        run: |
+          echo "SHORT_SHA=`echo ${GITHUB_SHA} | cut -c1-8`" >> $GITHUB_ENV
+          echo "Ready to upload the build output to GitHub."
 
       - name: Upload API
         uses: actions/upload-artifact@v2.2.0
