@@ -1,6 +1,5 @@
 package net.dodogang.sizzle.network;
 
-import com.sun.javafx.geom.Vec3d;
 import net.dodogang.sizzle.util.DimensionRegion;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.ServerPlayerEntity;
@@ -10,6 +9,7 @@ import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.RegistryKey;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.AxisAlignedBB;
+import net.minecraft.util.math.vector.Vector3d;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.Chunk;
 import net.minecraftforge.fml.LogicalSide;
@@ -201,7 +201,7 @@ public class PacketChannel {
      * @param rad   The radius of the spherical area.
      * @param dimen The dimension to send to.
      */
-    public void sendToRange(IPacket pkt, Vec3d pt, double rad, RegistryKey<World> dimen) {
+    public void sendToRange(IPacket pkt, Vector3d pt, double rad, RegistryKey<World> dimen) {
         send(pkt, PacketDistributor.NEAR.with(PacketDistributor.TargetPoint.p(pt.x, pt.y, pt.z, rad * rad, dimen)), NetworkSide.SERVER);
     }
 
@@ -215,7 +215,7 @@ public class PacketChannel {
      * @param dimen   The dimension to send to.
      * @param exclude The player to exclude.
      */
-    public void sendToRange(IPacket pkt, Vec3d pt, double rad, RegistryKey<World> dimen, ServerPlayerEntity exclude) {
+    public void sendToRange(IPacket pkt, Vector3d pt, double rad, RegistryKey<World> dimen, ServerPlayerEntity exclude) {
         send(pkt, PacketDistributor.NEAR.with(() -> new PacketDistributor.TargetPoint(exclude, pt.x, pt.y, pt.z, rad * rad, dimen)), NetworkSide.SERVER);
     }
 

@@ -1,7 +1,7 @@
 # This workflow will build a Java project with Gradle
 # For more information see: https://help.github.com/actions/language-and-framework-guides/building-and-testing-java-with-gradle
 
-name: Java CI with Gradle
+name: Forge build workflow
 
 on:
   push:
@@ -19,17 +19,17 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v1
 
-      - name: Set up JDK 1.8
+      - name: Set up JDK
         uses: actions/setup-java@v1
         with:
           java-version: 1.8
           java-package: jdk
           architecture: x64
 
-      - name: Grant execute permission for gradlew
+      - name: Permit 'gradlew'
         run: chmod +x gradlew
 
-      - name: Retrieve any cached dependencies
+      - name: Get cached deps
         uses: actions/cache@v2
         with:
           path: |
@@ -45,7 +45,7 @@ jobs:
           gradle-version: 4.10.3
           arguments: build --no-daemon
 
-      - name: Prepare to upload the build outputs
+      - name: Prepare upload
         env:
           SSH_AUTH_SOCK: /tmp/ssh_agent.sock
         run: |
