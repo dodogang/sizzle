@@ -39,7 +39,7 @@ allprojects {
     }
 
     mixin {
-        add sourceSets.main, "midnight.refmap.json"
+        add sourceSets.main, "sizzle.refmap.json"
     }
 
     modutil {
@@ -73,7 +73,7 @@ allprojects {
         }
         maven {
             name = "Shadew's Maven"
-            url = "http://maven.shadew.net/"
+            url = "https://maven.shadew.net/"
         }
         maven {
             name = "tterrag's maven"
