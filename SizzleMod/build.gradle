@@ -47,10 +47,9 @@ task genData(type: JavaExec) {
         "--output", "$projectDir/src/generated/resources",
         "--gameDir", "."
     )
-    if (!System.getenv().containsKey("DATAGEN_CI"))
-        workingDir file("./run")
-    else
-        workingDir file("$rootDir/run")
+    def file = file("$rootDir/run")
+    if(!file.exists()) file.mkdirs()
+    workingDir file
 }
 
 processResources {
