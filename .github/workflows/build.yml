@@ -1,11 +1,16 @@
-# This workflow will build a Java project with Gradle
-# For more information see: https://help.github.com/actions/language-and-framework-guides/building-and-testing-java-with-gradle
-
 name: Forge build workflow
 
 on:
   push:
     branches: [ forge/1.16.3 ]
+    paths-ignore:
+      - 'versioninfo/**'
+      - 'README.md'
+      - 'changelog.json'
+      - '.gitignore'
+      - '.gitattributes'
+    tags-ignore:
+      - '*.*'
   pull_request:
     branches: [ forge/1.16.3 ]
 
@@ -44,7 +49,7 @@ jobs:
         uses: eskatos/gradle-command-action@v1
         with:
           gradle-version: 4.10.3
-          arguments: build --no-daemon
+          arguments: build --no-daemon --info --stacktrace
 
       - name: Prepare upload
         env:
