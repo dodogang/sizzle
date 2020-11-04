@@ -18,7 +18,7 @@ jobs:
 
   build:
     name: Build
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
 
 
     steps:
@@ -45,13 +45,13 @@ jobs:
       #          restore-keys: |
       #            ${{ runner.os }}-gradle-
 
-      #      - name: Build Sizzle
-      #        uses: eskatos/gradle-command-action@v1
-      #        with:
-      #          gradle-version: 4.10.3
-      #          arguments: build --no-daemon --info --stacktrace
-      - name: Build
-        run: ./gradlew build --no-daemon --info --stacktrace
+      - name: Build Sizzle
+        uses: eskatos/gradle-command-action@v1
+        with:
+          gradle-version: 4.10.3
+          arguments: build --no-daemon --info --stacktrace
+      #      - name: Build
+      #        run: .\gradlew build --no-daemon --info --stacktrace
 
       - name: Prepare upload
         env:
