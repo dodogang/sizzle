@@ -16,32 +16,59 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
+
       - name: Set up JDK 1.8
         uses: actions/setup-java@v1
         with:
           java-version: 1.8
+
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
-      - name: Build with Gradle
-        run: ./gradlew build
+
+      - name: Retrieve any cached dependencies
+        uses: actions/cache@v2
+        with:
+          path: |
+            ~/.gradle/caches
+            ~/.gradle/wrapper
+          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*') }}
+          restore-keys: |
+            ${{ runner.os }}-gradle-
+
+      - name: Build Sizzle
+        uses: eskatos/gradle-command-action@v1
+        with:
+          gradle-version: 4.10.3
+          arguments: build --no-daemon
+
+      - name: Prepare to upload the build outputs
+          env:
+            SSH_AUTH_SOCK: /tmp/ssh_agent.sock
+          run: |
+            echo "SHORT_SHA=`echo ${GITHUB_SHA} | cut -c1-8`" >> $GITHUB_ENV
+            echo "Ready to upload the build output to GitHub."
+
       - name: Upload API
         uses: actions/upload-artifact@v2.2.0
         with:
           name: sizzle-api-${{ env.SHORT_SHA }}
           path: SizzleAPI/build/libs/*.jar
           retention-days: 30
+
       - name: Upload Client
         uses: actions/upload-artifact@v2.2.0
         with:
           name: sizzle-client-${{ env.SHORT_SHA }}
           path: SizzleMod/build/libs/*client*.jar
           retention-days: 30
+
       - name: Upload Server
         uses: actions/upload-artifact@v2.2.0
         with:
           name: sizzle-server-${{ env.SHORT_SHA }}
           path: SizzleMod/build/libs/*server*.jar
           retention-days: 30
+
       - name: Upload Universal
         uses: actions/upload-artifact@v2.2.0
         with:
