@@ -1,0 +1,14 @@
+{
+	"parent": "minecraft:block/cube",
+	"textures": {
+        "particle": "#side",
+        "side": "sizzle:block/blaze_rod_block",
+
+		"up": "sizzle:block/blaze_rod_block_top",
+		"down": "sizzle:block/blaze_rod_block_bottom",
+		"north": "#side",
+        "east": "#side",
+        "south": "#side",
+		"west": "#side"
+	}
+}
