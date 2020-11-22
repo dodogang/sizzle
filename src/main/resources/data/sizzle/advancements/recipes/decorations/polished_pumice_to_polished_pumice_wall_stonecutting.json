@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "sizzle:polished_pumice_to_polished_pumice_wall_stonecutting"
+    ]
+  },
+  "criteria": {
+    "has_polished_pumice": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "sizzle:polished_pumice"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "sizzle:polished_pumice_to_polished_pumice_wall_stonecutting"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_polished_pumice",
+      "has_the_recipe"
+    ]
+  ]
+}

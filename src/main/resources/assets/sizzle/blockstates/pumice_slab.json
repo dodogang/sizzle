@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "sizzle:block/pumice_slab"
+    },
+    "type=double": {
+      "model": "sizzle:block/pumice"
+    },
+    "type=top": {
+      "model": "sizzle:block/pumice_slab_top"
+    }
+  }
+}

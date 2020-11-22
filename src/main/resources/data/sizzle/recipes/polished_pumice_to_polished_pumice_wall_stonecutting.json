@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "sizzle:polished_pumice"
+  },
+  "result": "sizzle:polished_pumice_wall",
+  "count": 1
+}

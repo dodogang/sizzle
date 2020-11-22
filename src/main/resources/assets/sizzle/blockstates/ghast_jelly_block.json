@@ -1,7 +1,7 @@
 {
-    "variants": {
-        "": {
-            "model": "sizzle:block/ghast_jelly_block"
-        }
+  "variants": {
+    "": {
+      "model": "sizzle:block/ghast_jelly_block"
     }
+  }
 }

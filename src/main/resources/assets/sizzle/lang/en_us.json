@@ -4,5 +4,14 @@
     "itemGroup.sizzle.item_group": "Sizzle",
 
     "block.sizzle.blaze_rod_block": "Blaze Rod Block",
-    "block.sizzle.ghast_jelly_block": "Ghast Jelly Block"
+    "block.sizzle.ghast_jelly_block": "Ghast Jelly Block",
+
+    "block.sizzle.pumice": "Pumice",
+    "block.sizzle.pumice_slab": "Pumice Slab",
+    "block.sizzle.pumice_stairs": "Pumice Stairs",
+    "block.sizzle.pumice_wall": "Pumice Wall",
+    "block.sizzle.polished_pumice": "Polished Pumice",
+    "block.sizzle.polished_pumice_slab": "Polished Pumice Slab",
+    "block.sizzle.polished_pumice_stairs": "Polished Pumice Stairs",
+    "block.sizzle.polished_pumice_wall": "Polished Pumice Wall"
 }

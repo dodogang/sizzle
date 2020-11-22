@@ -51,7 +51,7 @@ public class SizzleBlocks {
                 .sounds(BlockSoundGroup.BASALT)
         )
     );
-    public static final Block PUMICE_SLAB = register("pumice_slab", new Block(FabricBlockSettings.copy(PUMICE)));
+    public static final Block PUMICE_SLAB = register("pumice_slab", new SlabBlock(FabricBlockSettings.copy(PUMICE)));
     public static final Block PUMICE_STAIRS = register("pumice_stairs", new PublicStairsBlock(PUMICE.getDefaultState(), FabricBlockSettings.copy(PUMICE)));
     public static final Block PUMICE_WALL = register("pumice_wall", new WallBlock(FabricBlockSettings.copy(PUMICE)));
     public static final Block POLISHED_PUMICE = register("polished_pumice", new Block(FabricBlockSettings.copy(PUMICE)));
