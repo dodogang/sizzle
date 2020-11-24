@@ -1,0 +1,6 @@
+{
+  "parent": "sizzle:block/template_beam_center",
+  "textures": {
+    "texture": "sizzle:block/red_cap_beam"
+  }
+}

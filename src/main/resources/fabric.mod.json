@@ -22,14 +22,10 @@
         "main": [
             "net.dodogang.sizzle.Sizzle"
         ],
-        "client": [
-            "net.dodogang.sizzle.SizzleClient"
-        ],
+        "client": [],
         "server": []
     },
-    "mixins": [
-        "sizzle.mixins.json"
-    ],
+    "mixins": [],
     "depends": {
         "fabricloader": ">=0.10.6",
         "fabric": "*",

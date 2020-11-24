@@ -59,6 +59,9 @@ public class SizzleBlocks {
     public static final Block POLISHED_PUMICE_STAIRS = register("polished_pumice_stairs", new PublicStairsBlock(POLISHED_PUMICE.getDefaultState(), FabricBlockSettings.copy(POLISHED_PUMICE)));
     public static final Block POLISHED_PUMICE_WALL = register("polished_pumice_wall", new WallBlock(FabricBlockSettings.copy(POLISHED_PUMICE)));
 
+    public static final Block BROWN_CAP_BEAM = registerBeam("brown_cap");
+    public static final Block RED_CAP_BEAM = registerBeam("red_cap");
+
     public SizzleBlocks() {}
 
     public static Block register(String id, Block block, boolean registerItem) {
@@ -71,5 +74,17 @@ public class SizzleBlocks {
     }
     public static Block register(String id, Block block) {
         return register(id, block, true);
+    }
+
+    public static Block registerBeam(String id) {
+        return register(
+            id + "_beam",
+            new BeamBlock(
+                FabricBlockSettings.of(Material.WOOD)
+                    .strength(2.0F, 2.0F)
+                    .nonOpaque()
+                    .sounds(BlockSoundGroup.WOOD)
+            )
+        );
     }
 }
