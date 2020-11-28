@@ -26,6 +26,9 @@ public class Sizzle implements ModInitializer {
     public void onInitialize() {
         log("Initializing");
 
+        new SizzleParticles();
+
+        new SizzleItems();
         new SizzleBlocks();
 
         log("Initialized");

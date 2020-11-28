@@ -11,7 +11,8 @@
     "contributors": [],
     "contact": {
         "homepage": "https://sizzle.dodogang.net",
-        "sources": "https://github.com/dodogang/sizzle"
+        "sources": "https://github.com/dodogang/sizzle",
+        "issues": "https://github.com/dodogang/sizzle/issues"
     },
 
     "license": "MIT",
@@ -22,7 +23,9 @@
         "main": [
             "net.dodogang.sizzle.Sizzle"
         ],
-        "client": [],
+        "client": [
+            "net.dodogang.sizzle.SizzleClient"
+        ],
         "server": []
     },
     "mixins": [],

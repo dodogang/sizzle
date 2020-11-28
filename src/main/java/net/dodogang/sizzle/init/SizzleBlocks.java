@@ -3,6 +3,7 @@ package net.dodogang.sizzle.init;
 import net.dodogang.sizzle.Sizzle;
 import net.dodogang.sizzle.block.*;
 import net.dodogang.sizzle.block.vanilla.*;
+import net.dodogang.sizzle.state.property.SizzleProperties;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.fabricmc.fabric.api.tool.attribute.v1.FabricToolTags;
 import net.minecraft.block.Block;
@@ -13,6 +14,7 @@ import net.minecraft.block.WallBlock;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.sound.BlockSoundGroup;
+import net.minecraft.state.property.Properties;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
@@ -38,6 +40,21 @@ public class SizzleBlocks {
                 .suffocates((state, world, pos) -> false)
                 .blockVision((state, world, pos) -> false)
                 .solidBlock((state, world, pos) -> false)
+                .nonOpaque()
+        )
+    );
+
+    public static final Block MAGMA_TONGUE = register(MagmaTongueBlock.id,
+        new MagmaTongueBlock(
+            FabricBlockSettings.of(Material.NETHER_SHOOTS, MaterialColor.ORANGE_TERRACOTTA)
+                .luminance(
+                    (state) -> {
+                        return state.get(Properties.WATERLOGGED)
+                            ? 0
+                            : 3 + (2 * state.get(SizzleProperties.TONGUES));
+                    }
+                )
+                .sounds(BlockSoundGroup.NETHER_SPROUTS)
                 .nonOpaque()
         )
     );

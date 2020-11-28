@@ -1,0 +1,34 @@
+{
+	"textures": {
+		"texture": "sizzle:block/magma_tongue",
+		"particle": "#texture"
+	},
+	"elements": [
+		{
+			"from": [7, 0, 8],
+			"to": [9, 4, 10],
+            "shade": false,
+			"faces": {
+				"north": {"uv": [3, 10, 4, 12], "texture": "#texture"},
+				"east": {"uv": [2, 10, 3, 12], "texture": "#texture"},
+				"south": {"uv": [5, 10, 6, 12], "texture": "#texture"},
+				"west": {"uv": [4, 10, 5, 12], "texture": "#texture"},
+				"up": {"uv": [4, 10, 3, 9], "texture": "#texture"},
+				"down": {"uv": [5, 9, 4, 10], "texture": "#texture"}
+			}
+		},
+		{
+			"from": [6, 4, 7],
+			"to": [10, 10, 11],
+			"shade": false,
+			"faces": {
+				"north": {"uv": [6, 3, 4, 6], "texture": "#texture"},
+				"east": {"uv": [8, 3, 6, 6], "texture": "#texture"},
+				"south": {"uv": [10, 3, 8, 6], "texture": "#texture"},
+				"west": {"uv": [4, 3, 2, 6], "texture": "#texture"},
+				"up": {"uv": [4, 3, 6, 1], "texture": "#texture"},
+				"down": {"uv": [6, 1, 8, 3], "texture": "#texture"}
+			}
+		}
+	]
+}
