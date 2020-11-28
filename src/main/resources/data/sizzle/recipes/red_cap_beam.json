@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "sizzle:beam",
+  "ingredients": [
+    {
+      "item": "sizzle:red_cap_planks"
+    }
+  ],
+  "result": {
+    "item": "sizzle:red_cap_beam",
+    "count": 2
+  }
+}

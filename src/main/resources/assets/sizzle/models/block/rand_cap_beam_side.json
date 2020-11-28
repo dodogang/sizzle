@@ -1,0 +1,6 @@
+{
+  "parent": "sizzle:block/template_beam_side",
+  "textures": {
+    "texture": "sizzle:block/rand_cap_beam"
+  }
+}

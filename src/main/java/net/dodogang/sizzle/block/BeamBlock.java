@@ -75,6 +75,10 @@ public class BeamBlock extends Block implements Waterloggable {
         return state.with(getProperty(direction), isConnectable(world, posFrom, direction.getOpposite()));
     }
 
+    protected boolean isConnectable(WorldAccess world, BlockPos pos, Direction dir) {
+        return world.getBlockState(pos).getBlock() instanceof BeamBlock;
+    }
+
     @Override
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
         builder.add(POST, NORTH, EAST, SOUTH, WEST, UP, DOWN, WATERLOGGED);
@@ -82,16 +86,12 @@ public class BeamBlock extends Block implements Waterloggable {
 
     @Override
     public BlockState getPlacementState(ItemPlacementContext ctx) {
-        return makeConnections(ctx.getWorld(), ctx.getBlockPos());
+        return makeConnections(ctx.getWorld(), ctx.getBlockPos()).with(POST, ctx.getSide() == Direction.UP || ctx.getSide() == Direction.DOWN);
     }
 
     @Override
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
         return shapeUtil.getShape(state);
-    }
-
-    protected boolean isConnectable(WorldAccess world, BlockPos pos, Direction dir) {
-        return world.getBlockState(pos).getBlock() instanceof BeamBlock;
     }
 
     @Override
@@ -144,9 +144,11 @@ public class BeamBlock extends Block implements Waterloggable {
 
         private VoxelShape getStateShape(BlockState state) {
             final double size = 4;
-            final VoxelShape baseShape = Block.createCuboidShape(size, size, size, 16.0D - size, 16.0D - size, 16.0D - size);
+            final VoxelShape baseShape = !state.get(POST)
+                ? Block.createCuboidShape(size, size, size, 16.0D - size, 16.0D - size, 16.0D - size)
+                : Block.createCuboidShape(size, 0.0D, size, 16.0D - size, 16.0D, 16.0D - size);
 
-            final List<VoxelShape> connections = new ArrayList<>();
+            final List<VoxelShape> connections = new ArrayList<VoxelShape>();
             for (Direction dir : Direction.values()) {
                 if (state.get(PROP_MAP.get(dir))) {
                     double x = dir == Direction.WEST ? 0 : dir == Direction.EAST ? 16D : size;

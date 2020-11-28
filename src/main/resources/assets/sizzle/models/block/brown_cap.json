@@ -1,0 +1,7 @@
+{
+    "parent": "minecraft:block/cube_column",
+    "textures": {
+        "end": "sizzle:block/brown_cap",
+        "side": "sizzle:block/brown_cap"
+    }
+}

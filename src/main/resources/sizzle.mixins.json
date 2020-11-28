@@ -5,7 +5,9 @@
     "mixins": [
         "EntityMixin"
     ],
-    "client": [],
+    "client": [
+        "TexturedRenderLayersMixin"
+    ],
     "injectors": {
         "defaultRequire": 1
     }

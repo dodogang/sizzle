@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "sizzle:block/red_cap_slab"
+    },
+    "type=double": {
+      "model": "sizzle:block/red_cap_planks"
+    },
+    "type=top": {
+      "model": "sizzle:block/red_cap_slab_top"
+    }
+  }
+}

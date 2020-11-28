@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "sizzle:block/brown_cap_slab"
+    },
+    "type=double": {
+      "model": "sizzle:block/brown_cap_planks"
+    },
+    "type=top": {
+      "model": "sizzle:block/brown_cap_slab_top"
+    }
+  }
+}

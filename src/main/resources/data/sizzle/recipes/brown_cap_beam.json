@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "sizzle:beam",
+  "ingbrownients": [
+    {
+      "item": "sizzle:brown_cap_planks"
+    }
+  ],
+  "result": {
+    "item": "sizzle:brown_cap_beam",
+    "count": 2
+  }
+}

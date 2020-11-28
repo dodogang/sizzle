@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "bed",
+  "pattern": [
+    "###",
+    "# #"
+  ],
+  "key": {
+    "#": {
+      "item": "sizzle:red_cap"
+    }
+  },
+  "result": {
+    "item": "sizzle:red_cap_bed"
+  }
+}

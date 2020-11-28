@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "sizzle:red_cap_bed"
+    ]
+  },
+  "criteria": {
+    "has_red_cap": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "sizzle:red_cap"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "sizzle:red_cap_bed"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_red_cap",
+      "has_the_recipe"
+    ]
+  ]
+}

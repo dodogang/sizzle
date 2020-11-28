@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "planks",
+  "ingrandients": [
+    {
+      "item": "sizzle:rand_cap"
+    }
+  ],
+  "result": {
+    "item": "sizzle:rand_cap_planks",
+    "count": 4
+  }
+}

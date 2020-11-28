@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "sizzle:rand_cap_planks"
+    ]
+  },
+  "criteria": {
+    "has_rand_cap": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "sizzle:rand_cap"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "sizzle:rand_cap_planks"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_rand_cap",
+      "has_the_recipe"
+    ]
+  ]
+}

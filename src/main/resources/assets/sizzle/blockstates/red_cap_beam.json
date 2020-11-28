@@ -20,11 +20,27 @@
       "apply": { "model": "sizzle:block/red_cap_beam_side", "y": 270 }
     },
     {
-      "when": { "up": true },
+      "when": { "up": false, "post": true },
       "apply": { "model": "sizzle:block/red_cap_beam_side", "x": 270}
     },
     {
-      "when": { "down": true },
+      "when": { "up": true, "post": false },
+      "apply": { "model": "sizzle:block/red_cap_beam_side", "x": 270}
+    },
+    {
+      "when": { "up": true, "post": true },
+      "apply": { "model": "sizzle:block/red_cap_beam_side", "x": 270}
+    },
+    {
+      "when": { "down": false, "post": true },
+      "apply": { "model": "sizzle:block/red_cap_beam_side", "x": 90 }
+    },
+    {
+      "when": { "down": true, "post": false },
+      "apply": { "model": "sizzle:block/red_cap_beam_side", "x": 90 }
+    },
+    {
+      "when": { "down": true, "post": true },
       "apply": { "model": "sizzle:block/red_cap_beam_side", "x": 90 }
     }
   ]

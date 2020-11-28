@@ -27,6 +27,7 @@ public class Sizzle implements ModInitializer {
         log("Initializing");
 
         new SizzleParticles();
+        new SizzleBlockEntities();
 
         new SizzleItems();
         new SizzleBlocks();
