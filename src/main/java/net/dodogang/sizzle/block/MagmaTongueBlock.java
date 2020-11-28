@@ -24,6 +24,7 @@ import net.minecraft.state.property.Properties;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.shape.VoxelShape;
+import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
@@ -69,8 +70,7 @@ public class MagmaTongueBlock extends PlantBlock implements Waterloggable {
     }
 
     @Override
-    public BlockState getStateForNeighborUpdate(BlockState state, Direction direction, BlockState newState,
-            WorldAccess world, BlockPos pos, BlockPos posFrom) {
+    public BlockState getStateForNeighborUpdate(BlockState state, Direction direction, BlockState newState, WorldAccess world, BlockPos pos, BlockPos posFrom) {
         if (!state.canPlaceAt(world, pos)) {
             return Blocks.AIR.getDefaultState();
         } else {
@@ -84,7 +84,7 @@ public class MagmaTongueBlock extends PlantBlock implements Waterloggable {
 
     @Override
     public boolean canReplace(BlockState state, ItemPlacementContext context) {
-        return context.getStack().getItem() == this.asItem() && state.get(TONGUES) < 5 ? true : super.canReplace(state, context);
+        return context.getStack().getItem() == this.asItem() && state.get(TONGUES) < 5;
     }
 
     @Override
@@ -102,6 +102,10 @@ public class MagmaTongueBlock extends PlantBlock implements Waterloggable {
             case 5:
                 return FIVE_TONGUES_SHAPE;
         }
+    }
+    @Override
+    public VoxelShape getCollisionShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
+        return state.get(TONGUES) >= 3 ? getOutlineShape(state, world, pos, context) : VoxelShapes.empty();
     }
 
     @Override
