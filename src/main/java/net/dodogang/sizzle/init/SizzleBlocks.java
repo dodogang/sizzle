@@ -7,6 +7,7 @@ import net.dodogang.sizzle.state.property.SizzleProperties;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.fabricmc.fabric.api.tool.attribute.v1.FabricToolTags;
 import net.minecraft.block.Block;
+import net.minecraft.block.Blocks;
 import net.minecraft.block.Material;
 import net.minecraft.block.MaterialColor;
 import net.minecraft.block.SlabBlock;
@@ -79,6 +80,11 @@ public class SizzleBlocks {
 
     public static final Block BROWN_CAP_BEAM = registerBeam("brown_cap");
     public static final Block RED_CAP_BEAM = registerBeam("red_cap");
+
+    public static final Block TALL_CRIMSON_ROOTS = register("tall_crimson_roots", new TallRootsBlock(FabricBlockSettings.copy(Blocks.CRIMSON_ROOTS)));
+    public static final Block TALL_WARPED_ROOTS = register("tall_warped_roots", new TallRootsBlock(FabricBlockSettings.copy(Blocks.WARPED_ROOTS)));
+    public static final Block TALLER_CRIMSON_ROOTS = register("taller_crimson_roots", new TallerRootsBlock(FabricBlockSettings.copy(Blocks.CRIMSON_ROOTS)));
+    public static final Block TALLER_WARPED_ROOTS = register("taller_warped_roots", new TallerRootsBlock(FabricBlockSettings.copy(Blocks.WARPED_ROOTS)));
 
     public SizzleBlocks() {}
 

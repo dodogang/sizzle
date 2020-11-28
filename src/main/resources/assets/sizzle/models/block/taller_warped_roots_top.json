@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/tinted_cross",
+  "textures": {
+    "cross": "sizzle:block/taller_warped_roots_top"
+  }
+}

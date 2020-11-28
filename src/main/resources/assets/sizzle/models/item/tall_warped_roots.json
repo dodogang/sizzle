@@ -1,0 +1,6 @@
+{
+    "parent": "minecraft:item/generated",
+    "textures": {
+        "layer0": "sizzle:block/tall_warped_roots_top"
+    }
+}

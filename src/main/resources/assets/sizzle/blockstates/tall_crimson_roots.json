@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "half=lower": {
+      "model": "sizzle:block/tall_crimson_roots_bottom"
+    },
+    "half=upper": {
+      "model": "sizzle:block/tall_crimson_roots_top"
+    }
+  }
+}

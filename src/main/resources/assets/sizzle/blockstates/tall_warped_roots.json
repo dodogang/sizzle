@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "half=lower": {
+      "model": "sizzle:block/tall_warped_roots_bottom"
+    },
+    "half=upper": {
+      "model": "sizzle:block/tall_warped_roots_top"
+    }
+  }
+}
