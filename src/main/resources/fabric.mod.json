@@ -28,7 +28,9 @@
         ],
         "server": []
     },
-    "mixins": [],
+    "mixins": [
+        "sizzle.mixins.json"
+    ],
     "depends": {
         "fabricloader": ">=0.10.6",
         "fabric": "*",
