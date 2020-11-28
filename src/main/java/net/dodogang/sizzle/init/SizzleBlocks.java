@@ -56,6 +56,7 @@ public class SizzleBlocks {
                 )
                 .sounds(BlockSoundGroup.NETHER_SPROUTS)
                 .nonOpaque()
+                .noCollision()
         )
     );
 
