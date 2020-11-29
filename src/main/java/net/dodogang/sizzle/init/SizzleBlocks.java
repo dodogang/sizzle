@@ -80,7 +80,7 @@ public class SizzleBlocks {
     public static final Block TALLER_WARPED_ROOTS = register("taller_warped_roots", new TallerRootsBlock(FabricBlockSettings.copy(Blocks.WARPED_ROOTS)));
 
     //
-    // SPECIAL BLOCKS
+    // STANDALONE BLOCKS
     //
 
     public static final Block BLAZE_ROD_BLOCK = register("blaze_rod_block",
@@ -120,6 +120,14 @@ public class SizzleBlocks {
                 )
                 .sounds(BlockSoundGroup.NETHER_SPROUTS)
                 .nonOpaque()
+        )
+    );
+    public static final Block WITHER_BONE_BLOCK = register("wither_bone_block",
+        new PillarBlock(
+            FabricBlockSettings.of(Material.STONE, MaterialColor.BLACK)
+                .requiresTool()
+                .strength(2.0F)
+                .sounds(BlockSoundGroup.BONE)
         )
     );
 

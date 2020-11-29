@@ -1,0 +1,13 @@
+{
+    "replace": false,
+    "values": [
+        "minecraft:grass_block",
+        "minecraft:podzol",
+        "minecraft:mycelium",
+        "minecraft:dirt",
+        "minecraft:grass",
+        "minecraft:tall_grass",
+        "minecraft:fern",
+        "minecraft:large_fern"
+    ]
+}

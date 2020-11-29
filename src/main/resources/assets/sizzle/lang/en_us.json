@@ -3,6 +3,7 @@
     "mod.sizzle.description": "Mmmm sizzly",
     "itemGroup.sizzle.item_group": "Sizzle",
 
+    "block.sizzle.wither_bone_block": "Wither Bone Block",
     "block.sizzle.blaze_rod_block": "Blaze Rod Block",
     "block.sizzle.ghast_jelly_block": "Ghast Jelly Block",
     "block.sizzle.magma_tongue": "Magma Tongue",
@@ -35,5 +36,8 @@
     "block.sizzle.tall_crimson_roots": "Tall Crimson Roots",
     "block.sizzle.taller_crimson_roots": "Taller Crimson Roots",
     "block.sizzle.tall_warped_roots": "Tall Warped Roots",
-    "block.sizzle.taller_warped_roots": "Taller Warped Roots"
+    "block.sizzle.taller_warped_roots": "Taller Warped Roots",
+
+    "item.sizzle.wither_bone": "Wither Bone",
+    "item.sizzle.wither_bone_meal": "Wither Bone Meal"
 }

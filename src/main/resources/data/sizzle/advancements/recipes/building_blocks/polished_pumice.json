@@ -2,7 +2,7 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "sizzle:pumice_slab_3x1"
+      "sizzle:polished_pumice"
     ]
   },
   "criteria": {
@@ -19,7 +19,7 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "sizzle:pumice_slab_3x1"
+        "recipe": "sizzle:polished_pumice"
       }
     }
   },

@@ -1,0 +1,16 @@
+{
+    "variants": {
+        "axis=x": {
+            "model": "sizzle:block/wither_bone_block",
+            "x": 90,
+            "y": 90
+        },
+        "axis=y": {
+            "model": "sizzle:block/wither_bone_block"
+        },
+        "axis=z": {
+            "model": "sizzle:block/wither_bone_block",
+            "x": 90
+        }
+    }
+}

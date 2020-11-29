@@ -1,7 +1,7 @@
 {
   "type": "minecraft:crafting_shapeless",
   "group": "sizzle:beam",
-  "ingrandients": [
+  "ingredients": [
     {
       "item": "sizzle:rand_cap_planks"
     }

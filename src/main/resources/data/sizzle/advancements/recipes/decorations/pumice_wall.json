@@ -2,7 +2,7 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "sizzle:polished_pumice_2x2"
+      "sizzle:pumice_wall"
     ]
   },
   "criteria": {
@@ -19,7 +19,7 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "sizzle:polished_pumice_2x2"
+        "recipe": "sizzle:pumice_wall"
       }
     }
   },

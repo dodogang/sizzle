@@ -1,7 +1,7 @@
 {
   "type": "minecraft:crafting_shapeless",
   "group": "planks",
-  "ingbrownients": [
+  "ingredients": [
     {
       "item": "sizzle:brown_cap"
     }

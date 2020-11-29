@@ -3,6 +3,7 @@ package net.dodogang.sizzle;
 import net.dodogang.sizzle.init.*;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
+import net.fabricmc.fabric.api.loot.v1.event.LootTableLoadingCallback;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Identifier;
@@ -31,6 +32,15 @@ public class Sizzle implements ModInitializer {
 
         new SizzleItems();
         new SizzleBlocks();
+
+        for (Identifier identifier : new Identifier[]{ new Identifier("entities/wither_skeleton") }) {
+            Identifier VANILLA_TABLE = new Identifier(identifier.toString());
+            Identifier ADDITION_TABLE = new Identifier(Sizzle.MOD_ID, "additions/" + identifier.getNamespace() + "/" + identifier.getPath());
+
+            LootTableLoadingCallback.EVENT.register((resourceManager, lootManager, id, supplier, setter) -> {
+                if (VANILLA_TABLE.equals(id)) supplier.copyFrom(lootManager.getTable(ADDITION_TABLE));
+            });
+        }
 
         log("Initialized");
     }

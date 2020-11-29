@@ -2,7 +2,7 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "sizzle:polished_pumice_slab_3x1"
+      "sizzle:blaze_rod_block"
     ]
   },
   "criteria": {
@@ -11,7 +11,7 @@
       "conditions": {
         "items": [
           {
-            "item": "sizzle:polished_pumice"
+            "item": "minecraft:blaze_rod"
           }
         ]
       }
@@ -19,7 +19,7 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "sizzle:polished_pumice_slab_3x1"
+        "recipe": "sizzle:blaze_rod_block"
       }
     }
   },

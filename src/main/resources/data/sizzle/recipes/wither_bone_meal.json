@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "sizzle:bone_meal",
+  "ingredients": [
+    {
+      "item": "sizzle:wither_bone"
+    }
+  ],
+  "result": {
+    "item": "sizzle:wither_bone_meal",
+    "count": 3
+  }
+}

@@ -2,16 +2,16 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "sizzle:polished_pumice_wall_3x2"
+      "sizzle:wither_bone_meal"
     ]
   },
   "criteria": {
-    "has_ingredient": {
+    "has_wither_bone": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
-            "item": "sizzle:polished_pumice"
+            "item": "sizzle:wither_bone"
           }
         ]
       }
@@ -19,13 +19,13 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "sizzle:polished_pumice_wall_3x2"
+        "recipe": "sizzle:wither_bone_meal"
       }
     }
   },
   "requirements": [
     [
-      "has_ingredient",
+      "has_wither_bone",
       "has_the_recipe"
     ]
   ]
