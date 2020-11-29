@@ -1,10 +1,11 @@
 package net.dodogang.sizzle.item;
 
+import java.util.Random;
+
 import net.dodogang.sizzle.tag.SizzleBlockTags;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -12,7 +13,6 @@ import net.minecraft.item.ItemUsageContext;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Direction;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
@@ -85,41 +85,12 @@ public class WitherBoneMealItem extends Item {
 
     @Environment(EnvType.CLIENT)
     public static void createParticles(WorldAccess world, BlockPos pos, int count) {
-        if (count == 0) count = 15;
-
-        BlockState blockState = world.getBlockState(pos);
-        if (!blockState.isAir()) {
-            double d = 0.5D;
-            double g;
-            if (blockState.isOf(Blocks.WATER)) {
-                count *= 3;
-                g = 1.0D;
-                d = 3.0D;
-            } else if (blockState.isOpaqueFullCube(world, pos)) {
-                pos = pos.up();
-                count *= 3;
-                d = 3.0D;
-                g = 1.0D;
-            } else {
-                g = blockState.getOutlineShape(world, pos).getMax(Direction.Axis.Y);
-            }
-
-            world.addParticle(ParticleTypes.SMOKE, (double) pos.getX() + 0.5D, (double) pos.getY() + 0.5D,
-                    (double) pos.getZ() + 0.5D, 0.0D, 0.0D, 0.0D);
-
-            for (int i = 0; i < count; ++i) {
-                double velocityX = RANDOM.nextGaussian() * 0.02D;
-                double velocityY = RANDOM.nextGaussian() * 0.02D;
-                double velocityZ = RANDOM.nextGaussian() * 0.02D;
-                double l = 0.5D - d;
-                double x = (double) pos.getX() + l + RANDOM.nextDouble() * d * 2.0D;
-                double y = (double) pos.getY() + RANDOM.nextDouble() * g;
-                double z = (double) pos.getZ() + l + RANDOM.nextDouble() * d * 2.0D;
-                if (!world.getBlockState((new BlockPos(x, y, z)).down()).isAir()) {
-                    world.addParticle(ParticleTypes.SMOKE, x, y, z, velocityX, velocityY, velocityZ);
-                }
-            }
-
+        Random random = world.getRandom();
+        for (int i = 0; i < count; i++) {
+            double x = pos.getX() + 0.5D + 0.25D * (random.nextInt(2) * 2 - 1);
+            double y = (pos.getY() + random.nextFloat());
+            double z = pos.getZ() + 0.5D + 0.25D * (random.nextInt(2) * 2 - 1);
+            world.addParticle(ParticleTypes.SMOKE, x, y, z, 0.0D, 0.0D, 0.0D);
         }
     }
 }
