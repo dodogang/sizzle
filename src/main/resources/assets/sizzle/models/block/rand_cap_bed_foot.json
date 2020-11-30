@@ -1,0 +1,55 @@
+{
+    "parent": "minecraft:block/block",
+    "textures": {
+        "texture": "sizzle:block/rand_cap_bed",
+        "particle": "sizzle:block/rand_cap"
+    },
+    "elements": [
+        {
+            "name": "layer",
+            "from": [0, 10, 0],
+            "to": [16, 13, 16],
+            "faces": {
+                "east": {"uv": [2.625, 7.625, 3, 9.625], "rotation": 270, "texture": "#texture"},
+                "south": {"uv": [0.625, 9.625, 2.625, 10], "texture": "#texture"},
+                "west": {"uv": [0.25, 7.625, 0.625, 9.625], "rotation": 90, "texture": "#texture"},
+                "up": {"uv": [0.625, 7.625, 2.625, 9.625], "rotation": 180, "texture": "#texture"}
+            }
+        },
+        {
+            "name": "body",
+            "from": [0, 5, 0],
+            "to": [16, 10, 16],
+            "faces": {
+                "east": {"uv": [2.625, 4.625, 3.25, 2.625], "rotation": 270, "texture": "#texture"},
+                "south": {"uv": [0.625, 4.625, 2.625, 5.25], "texture": "#texture"},
+                "west": {"uv": [0, 4.625, 0.625, 2.625], "rotation": 90, "texture": "#texture"},
+                "down": {"uv": [3.25, 0.625, 5.25, 2.625], "texture": "#texture"}
+            }
+        },
+        {
+            "name": "legLeft",
+            "from": [0, 0, 12],
+            "to": [4, 5, 16],
+            "faces": {
+                "north": {"uv": [5.75, 2.75, 6.25, 3.375], "texture": "#texture"},
+                "east": {"uv": [5.25, 2.75, 5.75, 3.375], "texture": "#texture"},
+                "south": {"uv": [6.75, 2.75, 7.25, 3.375], "texture": "#texture"},
+                "west": {"uv": [6.25, 2.75, 6.75, 3.375], "texture": "#texture"},
+                "down": {"uv": [6.75, 2.25, 6.25, 2.75], "texture": "#texture"}
+            }
+        },
+        {
+            "name": "legRight",
+            "from": [12, 0, 12],
+            "to": [16, 5, 16],
+            "faces": {
+                "north": {"uv": [5.75, 3.875, 6.25, 4.5], "texture": "#texture"},
+                "east": {"uv": [5.25, 3.875, 5.75, 4.5], "texture": "#texture"},
+                "south": {"uv": [6.75, 3.875, 7.25, 4.5], "texture": "#texture"},
+                "west": {"uv": [6.25, 3.875, 6.75, 4.5], "texture": "#texture"},
+                "down": {"uv": [6.75, 3.375, 6.25, 3.875], "texture": "#texture"}
+            }
+        }
+    ]
+}

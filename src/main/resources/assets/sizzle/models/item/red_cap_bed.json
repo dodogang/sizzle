@@ -1,6 +1,6 @@
 {
-    "parent": "minecraft:item/template_bed",
+    "parent": "sizzle:block/template_cap_bed_inventory",
     "textures": {
-        "particle": "sizzle:block/red_cap_planks"
+        "texture": "sizzle:block/red_cap_bed"
     }
 }

@@ -20,7 +20,7 @@ public class Sizzle implements ModInitializer {
 
     public static final ItemGroup ITEM_GROUP = FabricItemGroupBuilder.build(
         new Identifier(MOD_ID, "item_group"),
-        () -> new ItemStack(SizzleBlocks.BLAZE_ROD_BLOCK)
+        () -> new ItemStack(SizzleBlocks.WITHER_BONE_BLOCK)
     );
 
     @Override
@@ -28,10 +28,9 @@ public class Sizzle implements ModInitializer {
         log("Initializing");
 
         new SizzleParticles();
-        new SizzleBlockEntities();
 
-        new SizzleItems();
         new SizzleBlocks();
+        new SizzleItems();
 
         for (Identifier identifier : new Identifier[]{ new Identifier("entities/wither_skeleton") }) {
             Identifier VANILLA_TABLE = new Identifier(identifier.toString());

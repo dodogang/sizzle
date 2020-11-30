@@ -1,0 +1,7 @@
+{
+    "parent": "sizzle:block/template_cap_bed_head",
+    "textures": {
+        "texture": "sizzle:block/brown_cap_bed",
+        "particle": "sizzle:block/brown_cap"
+    }
+}

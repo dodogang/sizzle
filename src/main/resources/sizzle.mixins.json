@@ -3,7 +3,8 @@
     "package": "net.dodogang.sizzle.mixin",
     "compatibilityLevel": "JAVA_8",
     "mixins": [
-        "EntityMixin"
+        "EntityMixin",
+        "LivingEntityMixin"
     ],
     "client": [
         "TexturedRenderLayersMixin"

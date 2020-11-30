@@ -18,7 +18,6 @@ import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.state.property.Properties;
-import net.minecraft.util.DyeColor;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
@@ -33,21 +32,21 @@ public class SizzleBlocks {
     public static final Block BROWN_CAP_SLAB = register("brown_cap_slab", new SlabBlock(FabricBlockSettings.copy(Blocks.OAK_SLAB)));
     public static final Block BROWN_CAP_STAIRS = register("brown_cap_stairs", new PublicStairsBlock(BROWN_CAP_PLANKS.getDefaultState(), FabricBlockSettings.copy(Blocks.OAK_STAIRS)));
     public static final Block BROWN_CAP_BEAM = registerBeam("brown_cap");
-    public static final Block BROWN_CAP_BED = registerCapBed("brown_cap", DyeColor.BROWN, Blocks.BROWN_BED);
+    public static final Block BROWN_CAP_BED = register("brown_cap_bed", new CapBedBlock(FabricBlockSettings.copy(Blocks.BROWN_BED)));
 
     public static final Block RED_CAP = register("red_cap", new PillarBlock(FabricBlockSettings.copy(Blocks.OAK_WOOD)));
     public static final Block RED_CAP_PLANKS = register("red_cap_planks", new Block(FabricBlockSettings.copy(Blocks.OAK_PLANKS)));
     public static final Block RED_CAP_SLAB = register("red_cap_slab", new SlabBlock(FabricBlockSettings.copy(Blocks.OAK_SLAB)));
     public static final Block RED_CAP_STAIRS = register("red_cap_stairs", new PublicStairsBlock(RED_CAP_PLANKS.getDefaultState(), FabricBlockSettings.copy(Blocks.OAK_STAIRS)));
     public static final Block RED_CAP_BEAM = registerBeam("red_cap");
-    public static final Block RED_CAP_BED = registerCapBed("red_cap", DyeColor.RED, Blocks.RED_BED);
+    public static final Block RED_CAP_BED = register("red_cap_bed", new CapBedBlock(FabricBlockSettings.copy(Blocks.RED_BED)));
 
     public static final Block RAND_CAP = register("rand_cap", new PillarBlock(FabricBlockSettings.copy(Blocks.OAK_WOOD)));
     public static final Block RAND_CAP_PLANKS = register("rand_cap_planks", new Block(FabricBlockSettings.copy(Blocks.OAK_PLANKS)));
     public static final Block RAND_CAP_SLAB = register("rand_cap_slab", new SlabBlock(FabricBlockSettings.copy(Blocks.OAK_SLAB)));
     public static final Block RAND_CAP_STAIRS = register("rand_cap_stairs", new PublicStairsBlock(RAND_CAP_PLANKS.getDefaultState(), FabricBlockSettings.copy(Blocks.OAK_STAIRS)));
     public static final Block RAND_CAP_BEAM = registerBeam("rand_cap");
-    public static final Block RAND_CAP_BED = registerCapBed("rand_cap", DyeColor.ORANGE, Blocks.ORANGE_BED);
+    public static final Block RAND_CAP_BED = register("rand_cap_bed", new CapBedBlock(true, FabricBlockSettings.copy(Blocks.ORANGE_BED)));
 
     //
     // PUMICE
@@ -157,12 +156,6 @@ public class SizzleBlocks {
                     .nonOpaque()
                     .sounds(BlockSoundGroup.WOOD)
             )
-        );
-    }
-    public static Block registerCapBed(String id, DyeColor dyeColor, Block base) {
-        return register(
-            id + "_bed",
-            new CapBedBlock(id, dyeColor, FabricBlockSettings.copy(base))
         );
     }
 }
