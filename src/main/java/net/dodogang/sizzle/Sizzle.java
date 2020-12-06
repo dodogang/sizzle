@@ -33,11 +33,9 @@ public class Sizzle implements ModInitializer {
         new SizzleItems();
 
         for (Identifier identifier : new Identifier[]{ new Identifier("entities/wither_skeleton") }) {
-            Identifier VANILLA_TABLE = new Identifier(identifier.toString());
             Identifier ADDITION_TABLE = new Identifier(Sizzle.MOD_ID, "additions/" + identifier.getNamespace() + "/" + identifier.getPath());
-
             LootTableLoadingCallback.EVENT.register((resourceManager, lootManager, id, supplier, setter) -> {
-                if (VANILLA_TABLE.equals(id)) supplier.copyFrom(lootManager.getTable(ADDITION_TABLE));
+                if (identifier.equals(id)) supplier.copyFrom(lootManager.getTable(ADDITION_TABLE));
             });
         }
 
