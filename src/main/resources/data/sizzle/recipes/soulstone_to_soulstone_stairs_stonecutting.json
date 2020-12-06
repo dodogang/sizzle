@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "sizzle:soulstone"
+  },
+  "result": "sizzle:soulstone_stairs",
+  "count": 1
+}

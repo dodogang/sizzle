@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "sizzle:soulstone_bricks_to_soulstone_brick_stairs_stonecutting"
+    ]
+  },
+  "criteria": {
+    "has_soulstone_bricks": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "sizzle:soulstone_bricks"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "sizzle:soulstone_bricks_to_soulstone_brick_stairs_stonecutting"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_soulstone_bricks",
+      "has_the_recipe"
+    ]
+  ]
+}

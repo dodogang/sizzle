@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "sizzle:soulstone_bricks"
+    }
+  },
+  "result": {
+    "item": "sizzle:soulstone_brick_slab",
+    "count": 6
+  }
+}

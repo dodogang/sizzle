@@ -2,6 +2,8 @@
   "replace": false,
   "values": [
     "sizzle:pumice_slab",
-    "sizzle:polished_pumice_slab"
+    "sizzle:polished_pumice_slab",
+    "sizzle:soulstone_slab",
+    "sizzle:soulstone_brick_slab"
   ]
 }

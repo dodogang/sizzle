@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/outer_stairs",
+  "textures": {
+    "bottom": "sizzle:block/soulstone_bricks",
+    "top": "sizzle:block/soulstone_bricks",
+    "side": "sizzle:block/soulstone_bricks"
+  }
+}

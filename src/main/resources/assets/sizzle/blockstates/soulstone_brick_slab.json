@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "sizzle:block/soulstone_brick_slab"
+    },
+    "type=double": {
+      "model": "sizzle:block/soulstone_bricks"
+    },
+    "type=top": {
+      "model": "sizzle:block/soulstone_brick_slab_top"
+    }
+  }
+}

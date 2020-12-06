@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab",
+  "textures": {
+    "bottom": "sizzle:block/soulstone",
+    "top": "sizzle:block/soulstone_top",
+    "side": "sizzle:block/soulstone"
+  }
+}

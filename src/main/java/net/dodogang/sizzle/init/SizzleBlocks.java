@@ -70,6 +70,30 @@ public class SizzleBlocks {
     public static final Block POLISHED_PUMICE_WALL = register("polished_pumice_wall", new WallBlock(FabricBlockSettings.copy(POLISHED_PUMICE)));
 
     //
+    // SOULSTONE
+    //
+
+    public static final Block SOULSTONE = register("soulstone",
+        new Block(
+            FabricBlockSettings.of(Material.STONE, MaterialColor.GRAY)
+                .strength(1.5F, 6.0F)
+                .requiresTool()
+                .breakByTool(FabricToolTags.PICKAXES)
+                .sounds(BlockSoundGroup.BASALT)
+        )
+    );
+    public static final Block SOULSTONE_SLAB = register("soulstone_slab", new SlabBlock(FabricBlockSettings.copy(SOULSTONE)));
+    public static final Block SOULSTONE_STAIRS = register("soulstone_stairs", new PublicStairsBlock(SOULSTONE.getDefaultState(), FabricBlockSettings.copy(SOULSTONE)));
+    public static final Block SOULSTONE_WALL = register("soulstone_wall", new WallBlock(FabricBlockSettings.copy(SOULSTONE)));
+    public static final Block SOULSTONE_BRICKS = register("soulstone_bricks", new Block(FabricBlockSettings.copy(SOULSTONE)));
+    public static final Block SOULSTONE_BRICK_SLAB = register("soulstone_brick_slab", new SlabBlock(FabricBlockSettings.copy(SOULSTONE_BRICKS)));
+    public static final Block SOULSTONE_BRICK_STAIRS = register("soulstone_brick_stairs", new PublicStairsBlock(SOULSTONE_BRICKS.getDefaultState(), FabricBlockSettings.copy(SOULSTONE_BRICKS)));
+    public static final Block SOULSTONE_BRICK_WALL = register("soulstone_brick_wall", new WallBlock(FabricBlockSettings.copy(SOULSTONE_BRICKS)));
+    public static final Block SMOOTH_SOULSTONE = register("smooth_soulstone", new Block(FabricBlockSettings.copy(SOULSTONE)));
+    public static final Block CARVED_SOULSTONE = register("carved_soulstone", new Block(FabricBlockSettings.copy(SOULSTONE)));
+    public static final Block CHISELED_SOULSTONE = register("chiseled_soulstone", new Block(FabricBlockSettings.copy(SOULSTONE)));
+
+    //
     // ROOTS
     //
 
