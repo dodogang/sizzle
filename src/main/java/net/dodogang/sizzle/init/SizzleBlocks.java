@@ -1,8 +1,9 @@
 package net.dodogang.sizzle.init;
 
+import me.andante.chord.block.BeamBlock;
+import me.andante.chord.block.vanilla.*;
 import net.dodogang.sizzle.Sizzle;
 import net.dodogang.sizzle.block.*;
-import net.dodogang.sizzle.block.vanilla.*;
 import net.dodogang.sizzle.state.property.SizzleProperties;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.fabricmc.fabric.api.tool.attribute.v1.FabricToolTags;
@@ -21,6 +22,7 @@ import net.minecraft.state.property.Properties;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
+@SuppressWarnings("unused")
 public class SizzleBlocks {
 
     //
@@ -135,11 +137,9 @@ public class SizzleBlocks {
         new MagmaTongueBlock(
             FabricBlockSettings.of(Material.NETHER_SHOOTS, MaterialColor.ORANGE_TERRACOTTA)
                 .luminance(
-                    (state) -> {
-                        return state.get(Properties.WATERLOGGED)
-                            ? 0
-                            : 3 + (2 * state.get(SizzleProperties.TONGUES));
-                    }
+                    (state) -> state.get(Properties.WATERLOGGED)
+                        ? 0
+                        : 3 + (2 * state.get(SizzleProperties.TONGUES))
                 )
                 .sounds(BlockSoundGroup.NETHER_SPROUTS)
                 .nonOpaque()
