@@ -11,13 +11,13 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.shape.VoxelShape;
+import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 
+@SuppressWarnings("deprecation")
 public class GhastJellyBlock extends Block {
     public static final String id = "ghast_jelly_block";
-
-    private boolean hasRecentlyBounced;
 
     public GhastJellyBlock(AbstractBlock.Settings properties) {
         super(properties);
@@ -44,16 +44,12 @@ public class GhastJellyBlock extends Block {
 
     @Override
     public void onEntityCollision(BlockState state, World world, BlockPos pos, Entity entity) {
-        if (entity.isOnGround() || (entity instanceof PlayerEntity && ((PlayerEntity)entity).abilities.flying)) return;
-        boolean didRecentlyBounce = this.hasRecentlyBounced;
-
-        if (!this.hasRecentlyBounced) {
-            Vec3d vec3d = entity.getVelocity();
-            entity.setVelocity(-vec3d.x * 2.0D, vec3d.y, -vec3d.z * 2.0D);
-            this.hasRecentlyBounced = true;
+        if (entity instanceof PlayerEntity && ((PlayerEntity)entity).abilities.flying) {
+            return;
         }
 
-        if (didRecentlyBounce) this.hasRecentlyBounced = false;
+        entity.setVelocity(entity.getVelocity().multiply(-1D, -1D, -1D));
+        entity.fallDistance = 0;
     }
 
     @Override
@@ -61,15 +57,12 @@ public class GhastJellyBlock extends Block {
         return other.isOf(this);
     }
 
-    private VoxelShape getShape() {
-        return Block.createCuboidShape(1.0D, 0.0D, 1.0D, 15.0D, 15.0D, 15.0D);
-    }
     @Override
     public VoxelShape getCollisionShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
-        return this.getShape();
+        return Block.createCuboidShape(0.5D, 0.5D, 0.5D, 15.5D, 15.5D, 15.5D);
     }
     @Override
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
-        return this.getShape();
+        return VoxelShapes.fullCube();
     }
 }
