@@ -1,39 +1,40 @@
 {
-    "schemaVersion": 1,
-    "id": "sizzle",
-    "version": "${version}",
+  "schemaVersion": 1,
+  "id": "sizzle",
+  "version": "${version}",
 
-    "name": "Sizzle",
-    "description": "Mmmm sizzly",
-    "authors": [
-        "Dodo Gang"
+  "name": "Sizzle",
+  "description": "Mmmm sizzly",
+  "authors": [
+    "Dodo Gang"
+  ],
+  "contributors": [],
+  "contact": {
+    "homepage": "https://sizzle.dodogang.net",
+    "sources": "https://github.com/dodogang/sizzle",
+    "issues": "https://github.com/dodogang/sizzle/issues"
+  },
+
+  "license": "MIT",
+  "icon": "pack.png",
+
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "net.dodogang.sizzle.Sizzle"
     ],
-    "contributors": [],
-    "contact": {
-        "homepage": "https://sizzle.dodogang.net",
-        "sources": "https://github.com/dodogang/sizzle",
-        "issues": "https://github.com/dodogang/sizzle/issues"
-    },
-
-    "license": "MIT",
-    "icon": "pack.png",
-
-    "environment": "*",
-    "entrypoints": {
-        "main": [
-            "net.dodogang.sizzle.Sizzle"
-        ],
-        "client": [
-            "net.dodogang.sizzle.SizzleClient"
-        ],
-        "server": []
-    },
-    "mixins": [
-        "sizzle.mixins.json"
+    "client": [
+      "net.dodogang.sizzle.SizzleClient"
     ],
-    "depends": {
-        "fabricloader": ">=0.10.6",
-        "fabric": ">=0.27",
-        "minecraft": ">=1.16.2"
-    }
+    "server": []
+  },
+  "mixins": [
+    "sizzle.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.11",
+    "chord": ">=1.4.4",
+    "fabric": ">=0.30",
+    "minecraft": ">=1.16.2"
+  }
 }

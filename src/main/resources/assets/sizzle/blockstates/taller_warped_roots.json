@@ -1,12 +1,12 @@
 {
   "variants": {
-    "taller_block_part=lower": {
+    "triple_block_part=lower": {
       "model": "sizzle:block/taller_warped_roots_bottom"
     },
-    "taller_block_part=middle": {
+    "triple_block_part=middle": {
       "model": "sizzle:block/taller_warped_roots_middle"
     },
-    "taller_block_part=upper": {
+    "triple_block_part=upper": {
       "model": "sizzle:block/taller_warped_roots_top"
     }
   }
