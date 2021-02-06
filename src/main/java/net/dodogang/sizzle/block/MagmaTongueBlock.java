@@ -1,18 +1,10 @@
 package net.dodogang.sizzle.block;
 
-import java.util.Random;
-
 import net.dodogang.sizzle.init.SizzleParticles;
 import net.dodogang.sizzle.state.property.SizzleProperties;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
-import net.minecraft.block.AbstractBlock;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.PlantBlock;
-import net.minecraft.block.ShapeContext;
-import net.minecraft.block.Waterloggable;
+import net.minecraft.block.*;
 import net.minecraft.entity.ai.pathing.NavigationType;
 import net.minecraft.fluid.FluidState;
 import net.minecraft.fluid.Fluids;
@@ -24,12 +16,15 @@ import net.minecraft.state.property.Properties;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.shape.VoxelShape;
-import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
 import net.minecraft.world.WorldView;
 
+import java.util.Objects;
+import java.util.Random;
+
+@SuppressWarnings("deprecation")
 public class MagmaTongueBlock extends PlantBlock implements Waterloggable {
     public static final String id = "magma_tongue";
 
@@ -54,7 +49,7 @@ public class MagmaTongueBlock extends PlantBlock implements Waterloggable {
         } else {
             FluidState fluidState = ctx.getWorld().getFluidState(ctx.getBlockPos());
             boolean waterlogged = fluidState.getFluid() == Fluids.WATER;
-            return super.getPlacementState(ctx).with(WATERLOGGED, waterlogged);
+            return Objects.requireNonNull(super.getPlacementState(ctx)).with(WATERLOGGED, waterlogged);
         }
     }
 
@@ -102,10 +97,6 @@ public class MagmaTongueBlock extends PlantBlock implements Waterloggable {
             case 5:
                 return FIVE_TONGUES_SHAPE;
         }
-    }
-    @Override
-    public VoxelShape getCollisionShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
-        return state.get(TONGUES) >= 3 ? getOutlineShape(state, world, pos, context) : VoxelShapes.empty();
     }
 
     @Override

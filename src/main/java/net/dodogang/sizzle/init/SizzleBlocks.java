@@ -1,20 +1,13 @@
 package net.dodogang.sizzle.init;
 
 import me.andante.chord.block.BeamBlock;
-import me.andante.chord.block.vanilla.*;
+import me.andante.chord.block.vanilla.PublicStairsBlock;
 import net.dodogang.sizzle.Sizzle;
 import net.dodogang.sizzle.block.*;
 import net.dodogang.sizzle.state.property.SizzleProperties;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.fabricmc.fabric.api.tool.attribute.v1.FabricToolTags;
-import net.minecraft.block.BedBlock;
-import net.minecraft.block.Block;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.Material;
-import net.minecraft.block.MaterialColor;
-import net.minecraft.block.PillarBlock;
-import net.minecraft.block.SlabBlock;
-import net.minecraft.block.WallBlock;
+import net.minecraft.block.*;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.sound.BlockSoundGroup;
@@ -143,6 +136,7 @@ public class SizzleBlocks {
                 )
                 .sounds(BlockSoundGroup.NETHER_SPROUTS)
                 .nonOpaque()
+                .noCollision()
         )
     );
     public static final Block WITHER_BONE_BLOCK = register("wither_bone_block",
