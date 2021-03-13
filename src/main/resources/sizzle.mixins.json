@@ -6,9 +6,7 @@
     "EntityMixin",
     "LivingEntityMixin"
   ],
-  "client": [
-    "TexturedRenderLayersMixin"
-  ],
+  "client": [],
   "injectors": {
     "defaultRequire": 1
   }

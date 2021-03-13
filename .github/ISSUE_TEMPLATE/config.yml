@@ -3,3 +3,6 @@ contact_links:
   - name: Wiki
     url: https://sizzle.dodogang.net
     about: A detailed summary of Sizzle's features
+  - name: Features Roadmap (Trello)
+    url: https://trello.com/b/YH5XG4gT
+    about: A list of features and plans for the future - check here if you're making a feature request!
