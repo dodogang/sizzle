@@ -1,4 +1,4 @@
-package net.dodogang.sizzle.init;
+package net.dodogang.sizzle.block;
 
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricMaterialBuilder;
 import net.minecraft.block.Material;

@@ -10,7 +10,6 @@ import net.minecraft.entity.EntityType;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.registry.Registry;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -35,7 +34,7 @@ public class Sizzle implements ModInitializer {
         new SizzleBlocks();
         new SizzleItems();
 
-        for (Identifier identifier : new Identifier[]{ new Identifier("entities/" + Registry.ENTITY_TYPE.getId(EntityType.WITHER_SKELETON).getPath()) }) {
+        for (Identifier identifier : new Identifier[]{ EntityType.WITHER_SKELETON.getLootTableId() }) {
             Identifier ADDITION_TABLE = new Identifier(Sizzle.MOD_ID, "additions/" + identifier.getNamespace() + "/" + identifier.getPath());
             LootTableLoadingCallback.EVENT.register((resourceManager, lootManager, id, supplier, setter) -> {
                 if (identifier.equals(id)) supplier.copyFrom(lootManager.getTable(ADDITION_TABLE));
@@ -49,6 +48,6 @@ public class Sizzle implements ModInitializer {
         LOGGER.log(level, "[" + MOD_NAME + "] " + message);
     }
     public static void log(String message){
-        LOGGER.log(Level.INFO, "[" + MOD_NAME + "] " + message);
+        log(Level.INFO, message);
     }
 }

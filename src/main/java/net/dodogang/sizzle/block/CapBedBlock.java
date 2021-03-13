@@ -15,7 +15,7 @@ import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 
 public class CapBedBlock extends BedBlock {
-    private boolean hasLayer;
+    private final boolean hasLayer;
 
     protected static final VoxelShape LAYER_SHAPE = Block.createCuboidShape(0.0D, 10.0D, 0.0D, 16.0D, 13.0D, 16.0D);
     protected static final VoxelShape TOP_SHAPE = Block.createCuboidShape(0.0D, 5.0D, 0.0D, 16.0D, 10.0D, 16.0D);

@@ -1,174 +1,28 @@
 {
     "variants": {
-        "tongues=1,waterlogged=false": [
+        "tongues=1": [
             {
                 "model": "sizzle:block/magma_tongue"
-            },
-            {
-                "model": "sizzle:block/magma_tongue",
-                "y": 90
-            },
-            {
-                "model": "sizzle:block/magma_tongue",
-                "y": 180
-            },
-            {
-                "model": "sizzle:block/magma_tongue",
-                "y": 270
             }
         ],
-        "tongues=2,waterlogged=false": [
+        "tongues=2": [
             {
                 "model": "sizzle:block/two_magma_tongues"
-            },
-            {
-                "model": "sizzle:block/two_magma_tongues",
-                "y": 90
-            },
-            {
-                "model": "sizzle:block/two_magma_tongues",
-                "y": 180
-            },
-            {
-                "model": "sizzle:block/two_magma_tongues",
-                "y": 270
             }
         ],
-        "tongues=3,waterlogged=false": [
+        "tongues=3": [
             {
                 "model": "sizzle:block/three_magma_tongues"
-            },
-            {
-                "model": "sizzle:block/three_magma_tongues",
-                "y": 90
-            },
-            {
-                "model": "sizzle:block/three_magma_tongues",
-                "y": 180
-            },
-            {
-                "model": "sizzle:block/three_magma_tongues",
-                "y": 270
             }
         ],
-        "tongues=4,waterlogged=false": [
+        "tongues=4": [
             {
                 "model": "sizzle:block/four_magma_tongues"
-            },
-            {
-                "model": "sizzle:block/four_magma_tongues",
-                "y": 90
-            },
-            {
-                "model": "sizzle:block/four_magma_tongues",
-                "y": 180
-            },
-            {
-                "model": "sizzle:block/four_magma_tongues",
-                "y": 270
             }
         ],
-        "tongues=5,waterlogged=false": [
+        "tongues=5": [
             {
                 "model": "sizzle:block/five_magma_tongues"
-            },
-            {
-                "model": "sizzle:block/five_magma_tongues",
-                "y": 90
-            },
-            {
-                "model": "sizzle:block/five_magma_tongues",
-                "y": 180
-            },
-            {
-                "model": "sizzle:block/five_magma_tongues",
-                "y": 270
-            }
-        ],
-
-        "tongues=1,waterlogged=true": [
-            {
-                "model": "sizzle:block/magma_tongue"
-            },
-            {
-                "model": "sizzle:block/magma_tongue",
-                "y": 90
-            },
-            {
-                "model": "sizzle:block/magma_tongue",
-                "y": 180
-            },
-            {
-                "model": "sizzle:block/magma_tongue",
-                "y": 270
-            }
-        ],
-        "tongues=2,waterlogged=true": [
-            {
-                "model": "sizzle:block/two_magma_tongues"
-            },
-            {
-                "model": "sizzle:block/two_magma_tongues",
-                "y": 90
-            },
-            {
-                "model": "sizzle:block/two_magma_tongues",
-                "y": 180
-            },
-            {
-                "model": "sizzle:block/two_magma_tongues",
-                "y": 270
-            }
-        ],
-        "tongues=3,waterlogged=true": [
-            {
-                "model": "sizzle:block/three_magma_tongues"
-            },
-            {
-                "model": "sizzle:block/three_magma_tongues",
-                "y": 90
-            },
-            {
-                "model": "sizzle:block/three_magma_tongues",
-                "y": 180
-            },
-            {
-                "model": "sizzle:block/three_magma_tongues",
-                "y": 270
-            }
-        ],
-        "tongues=4,waterlogged=true": [
-            {
-                "model": "sizzle:block/four_magma_tongues"
-            },
-            {
-                "model": "sizzle:block/four_magma_tongues",
-                "y": 90
-            },
-            {
-                "model": "sizzle:block/four_magma_tongues",
-                "y": 180
-            },
-            {
-                "model": "sizzle:block/four_magma_tongues",
-                "y": 270
-            }
-        ],
-        "tongues=5,waterlogged=true": [
-            {
-                "model": "sizzle:block/five_magma_tongues"
-            },
-            {
-                "model": "sizzle:block/five_magma_tongues",
-                "y": 90
-            },
-            {
-                "model": "sizzle:block/five_magma_tongues",
-                "y": 180
-            },
-            {
-                "model": "sizzle:block/five_magma_tongues",
-                "y": 270
             }
         ]
     }

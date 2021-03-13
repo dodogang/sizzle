@@ -11,8 +11,14 @@ import net.minecraft.particle.DefaultParticleType;
 
 @Environment(EnvType.CLIENT)
 public class MagmaTongueParticle extends AscendingParticle {
-    protected MagmaTongueParticle(ClientWorld world, double x, double y, double z, double velocityX, double velocityY, double velocityZ, float scaleMultiplier, SpriteProvider spriteProvider) {
-        super(world, x, y, z, 0.1F, 0.1F, 0.1F, velocityX, velocityY, velocityZ, scaleMultiplier, spriteProvider, 0.8F, 20, 0.006D, true);
+    protected MagmaTongueParticle(ClientWorld world, double x, double y, double z, double velocityX, double velocityY, double velocityZ, float scale, SpriteProvider spriteProvider) {
+        super(world, x, y, z, 0.1F, 0.1F, 0.1F, velocityX, velocityY, velocityZ, scale, spriteProvider, 0.8F, 60, 0.006D, true);
+    }
+
+    @Override
+    public float getSize(float tickDelta) {
+        float ageDelta = ((float)this.age + tickDelta) / ((float)this.maxAge / 2);
+        return this.scale * (1.0F - ageDelta) * 1.4F;
     }
 
     @Environment(EnvType.CLIENT)
@@ -23,6 +29,7 @@ public class MagmaTongueParticle extends AscendingParticle {
             this.spriteProvider = spriteProvider;
         }
 
+        @Override
         public Particle createParticle(DefaultParticleType defaultParticleType, ClientWorld clientWorld, double x, double y, double z, double velocityX, double velocityY, double velocityZ) {
             return new MagmaTongueParticle(clientWorld, x, y, z, velocityX, velocityY, velocityZ, 1.0F, this.spriteProvider);
         }

@@ -51,8 +51,7 @@ public class SizzleBlocks {
         new Block(
             FabricBlockSettings.of(Material.STONE, MaterialColor.WHITE_TERRACOTTA)
                 .strength(1.5F, 6.0F)
-                .requiresTool()
-                .breakByTool(FabricToolTags.PICKAXES)
+                .requiresTool().breakByTool(FabricToolTags.PICKAXES)
                 .sounds(BlockSoundGroup.BASALT)
         )
     );
@@ -72,8 +71,7 @@ public class SizzleBlocks {
         new Block(
             FabricBlockSettings.of(Material.STONE, MaterialColor.GRAY)
                 .strength(1.5F, 6.0F)
-                .requiresTool()
-                .breakByTool(FabricToolTags.PICKAXES)
+                .requiresTool().breakByTool(FabricToolTags.PICKAXES)
                 .sounds(BlockSoundGroup.BASALT)
         )
     );
@@ -105,11 +103,8 @@ public class SizzleBlocks {
         new SizzleFacingBlock(
             FabricBlockSettings.of(Material.ORGANIC_PRODUCT, MaterialColor.YELLOW)
                 .strength(1, 1)
-                .requiresTool()
-                .breakByTool(FabricToolTags.PICKAXES)
-                .sounds(BlockSoundGroup.WEEPING_VINES_LOW_PITCH)
-                .emissiveLighting((state, world, pos) -> true)
-                .luminance(state -> 3)
+                .requiresTool().breakByTool(FabricToolTags.PICKAXES)
+                .sounds(BlockSoundGroup.WEEPING_VINES_LOW_PITCH).luminance(state -> 6)
         )
     );
     public static final Block GHAST_JELLY_BLOCK = register(GhastJellyBlock.id,
@@ -129,43 +124,36 @@ public class SizzleBlocks {
     public static final Block MAGMA_TONGUE = register(MagmaTongueBlock.id,
         new MagmaTongueBlock(
             FabricBlockSettings.of(Material.NETHER_SHOOTS, MaterialColor.ORANGE_TERRACOTTA)
-                .luminance(
-                    (state) -> state.get(Properties.WATERLOGGED)
-                        ? 0
-                        : 3 + (2 * state.get(SizzleProperties.TONGUES))
-                )
-                .sounds(BlockSoundGroup.NETHER_SPROUTS)
-                .nonOpaque()
-                .noCollision()
+                .luminance(state -> state.get(Properties.WATERLOGGED) ? 0 : 3 + (2 * state.get(SizzleProperties.TONGUES))
+                ).sounds(BlockSoundGroup.NETHER_SPROUTS)
+                .nonOpaque().noCollision()
         )
     );
     public static final Block WITHER_BONE_BLOCK = register("wither_bone_block",
         new PillarBlock(
             FabricBlockSettings.of(Material.STONE, MaterialColor.BLACK)
-                .requiresTool()
-                .strength(2.0F)
+                .requiresTool().strength(2.0F)
                 .sounds(BlockSoundGroup.BONE)
         )
     );
 
     public SizzleBlocks() {}
 
-    public static Block register(String id, Block block, boolean registerItem) {
+    private static Block register(String id, Block block, boolean registerItem) {
         Identifier identifier = new Identifier(Sizzle.MOD_ID, id);
         Block registeredBlock = Registry.register(Registry.BLOCK, identifier, block);
 
         if (registerItem) {
-            int maxCount = block instanceof BedBlock ? 1 : 64;
-            Registry.register(Registry.ITEM, identifier, new BlockItem(registeredBlock, new Item.Settings().maxCount(maxCount).group(Sizzle.ITEM_GROUP)));
+            Registry.register(Registry.ITEM, identifier, new BlockItem(registeredBlock, new Item.Settings().maxCount(block instanceof BedBlock ? 1 : 64).group(Sizzle.ITEM_GROUP)));
         }
 
         return registeredBlock;
     }
-    public static Block register(String id, Block block) {
+    private static Block register(String id, Block block) {
         return register(id, block, true);
     }
 
-    public static Block registerBeam(String id) {
+    private static Block registerBeam(String id) {
         return register(
             id + "_beam",
             new BeamBlock(
