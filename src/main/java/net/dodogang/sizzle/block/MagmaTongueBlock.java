@@ -36,7 +36,7 @@ public class MagmaTongueBlock extends PlantBlock implements Waterloggable {
 
     public MagmaTongueBlock(AbstractBlock.Settings settings) {
         super(settings);
-        this.setDefaultState(this.stateManager.getDefaultState().with(TONGUES, 1).with(WATERLOGGED, true));
+        this.setDefaultState(this.stateManager.getDefaultState().with(TONGUES, 1).with(WATERLOGGED, false));
     }
 
     @Override
