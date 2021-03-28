@@ -7,6 +7,9 @@ import net.minecraft.tag.Tag;
 import net.minecraft.util.Identifier;
 
 public class SizzleBlockTags {
+    /**
+     * A list of blocks that are de-fertilizable by wither bone meal.
+     */
     public static final Tag<Block> WITHER_BONE_MEAL_DEFERTILIZABLE = register("wither_bone_meal_defertilizable");
 
     private static Tag<Block> register(String path) {

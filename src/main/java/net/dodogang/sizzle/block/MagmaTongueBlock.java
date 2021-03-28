@@ -148,10 +148,28 @@ public class MagmaTongueBlock extends PlantBlock implements Waterloggable {
         );
 
         protected static final VoxelShape ONE_TONGUE = create(SH_TONGUE, 6.0D, 7.0D);
-        protected static final VoxelShape TWO_TONGUES = VoxelShapes.union(create(SH_SMALLER_TONGUE, 4.0D, 3.0D), create(SH_TONGUE, 9.0D, 8.0D));
-        protected static final VoxelShape THREE_TONGUES = VoxelShapes.union(create(SH_SMALLER_TONGUE, 9.0D, 3.0D), create(SH_TONGUE, 3.0D, 7.0D), create(SH_LARGE_TONGUE, 8.0D, 10.0D));
-        protected static final VoxelShape FOUR_TONGUES = VoxelShapes.union(create(SH_SMALL_TONGUE, 10.0D, 3.0D), create(SH_SMALL_TONGUE, 8.0D, 11.0D), create(SH_TALL_TONGUE, 2.0D, 10.0D), create(SH_LARGER_TONGUE, 4.0D, 3.0D));
-        protected static final VoxelShape FIVE_TONGUES = VoxelShapes.union(create(SH_SMALL_TONGUE, 10.0D, 3.0D), create(SH_SMALL_TONGUE, 7.0D, 7.0D), create(SH_TALL_TONGUE, 0.0D, 9.0D), create(SH_LARGER_TONGUE, 2.0D, 2.0D), create(SH_LARGER_TONGUE, 10.0D, 9.0D));
+        protected static final VoxelShape TWO_TONGUES = VoxelShapes.union(
+            create(SH_SMALLER_TONGUE, 4.0D, 3.0D),
+            create(SH_TONGUE, 9.0D, 8.0D)
+        );
+        protected static final VoxelShape THREE_TONGUES = VoxelShapes.union(
+            create(SH_SMALLER_TONGUE, 9.0D, 3.0D),
+            create(SH_TONGUE, 3.0D, 7.0D),
+            create(SH_LARGE_TONGUE, 8.0D, 10.0D)
+        );
+        protected static final VoxelShape FOUR_TONGUES = VoxelShapes.union(
+            create(SH_SMALL_TONGUE, 10.0D, 3.0D),
+            create(SH_SMALL_TONGUE, 8.0D, 11.0D),
+            create(SH_TALL_TONGUE, 2.0D, 10.0D),
+            create(SH_LARGER_TONGUE, 4.0D, 3.0D)
+        );
+        protected static final VoxelShape FIVE_TONGUES = VoxelShapes.union(
+            create(SH_SMALL_TONGUE, 10.0D, 3.0D),
+            create(SH_SMALL_TONGUE, 7.0D, 7.0D),
+            create(SH_TALL_TONGUE, 0.0D, 9.0D),
+            create(SH_LARGER_TONGUE, 2.0D, 2.0D),
+            create(SH_LARGER_TONGUE, 10.0D, 9.0D)
+        );
 
         protected static VoxelShape getShapeForTongues(int tongues) {
             switch (tongues) {
