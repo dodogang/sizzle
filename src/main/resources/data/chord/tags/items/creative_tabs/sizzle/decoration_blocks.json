@@ -1,0 +1,12 @@
+{
+  "replace": false,
+  "values": [
+    "sizzle:tall_crimson_roots",
+    "sizzle:tall_warped_roots",
+    "sizzle:taller_crimson_roots",
+    "sizzle:taller_warped_roots",
+
+    "sizzle:blaze_rod_block",
+    "sizzle:ghast_jelly_block"
+  ]
+}

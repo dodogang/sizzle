@@ -1,10 +1,12 @@
 package net.dodogang.sizzle;
 
+import com.google.common.collect.ImmutableList;
+import me.andante.chord.client.gui.itemgroup.AbstractTabbedItemGroup;
+import me.andante.chord.client.gui.itemgroup.ItemGroupTab;
 import net.dodogang.sizzle.init.SizzleBlocks;
 import net.dodogang.sizzle.init.SizzleItems;
 import net.dodogang.sizzle.init.SizzleParticles;
 import net.fabricmc.api.ModInitializer;
-import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.fabricmc.fabric.api.loot.v1.event.LootTableLoadingCallback;
 import net.minecraft.entity.EntityType;
 import net.minecraft.item.ItemGroup;
@@ -14,16 +16,29 @@ import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.util.List;
+
 public class Sizzle implements ModInitializer {
     public static final String MOD_ID = "sizzle";
     public static final String MOD_NAME = "Sizzle";
 
     public static Logger LOGGER = LogManager.getLogger(MOD_ID);
 
-    public static final ItemGroup ITEM_GROUP = FabricItemGroupBuilder.build(
-        new Identifier(MOD_ID, "item_group"),
-        () -> new ItemStack(SizzleBlocks.WITHER_BONE_BLOCK)
-    );
+    public static final ItemGroup ITEM_GROUP = new AbstractTabbedItemGroup(MOD_ID) {
+        @Override
+        protected List<ItemGroupTab> initTabs() {
+            return ImmutableList.of(
+                createTab(SizzleBlocks.BROWN_CAP, "building_blocks"),
+                createTab(SizzleBlocks.BLAZE_ROD_BLOCK, "decoration_blocks"),
+                createTab(SizzleBlocks.MAGMA_TONGUE, "miscellaneous")
+            );
+        }
+
+        @Override
+        public ItemStack createIcon() {
+            return new ItemStack(SizzleBlocks.WITHER_BONE_BLOCK);
+        }
+    };
 
     @Override
     public void onInitialize() {

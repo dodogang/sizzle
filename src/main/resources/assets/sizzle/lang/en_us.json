@@ -1,7 +1,13 @@
 {
     "mod.sizzle.name": "Sizzle",
     "mod.sizzle.description": "Mmmm sizzly",
-    "itemGroup.sizzle.item_group": "Sizzle",
+
+    "itemGroup.sizzle": "Sizzle (%s)",
+    "itemGroup.sizzle.title": "Sizzle",
+    "itemGroup.tab.sizzle:all": "All",
+    "itemGroup.tab.sizzle:building_blocks": "Building Blocks",
+    "itemGroup.tab.sizzle:decoration_blocks": "Decoration Blocks",
+    "itemGroup.tab.sizzle:miscellaneous": "Miscellaneous",
 
     "block.sizzle.wither_bone_block": "Wither Bone Block",
     "block.sizzle.blaze_rod_block": "Blaze Rod Block",

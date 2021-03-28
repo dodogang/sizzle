@@ -1,0 +1,48 @@
+{
+  "replace": false,
+  "values": [
+    "sizzle:brown_cap",
+    "sizzle:brown_cap_planks",
+    "sizzle:brown_cap_slab",
+    "sizzle:brown_cap_stairs",
+    "sizzle:brown_cap_beam",
+    "sizzle:brown_cap_bed",
+
+    "sizzle:red_cap",
+    "sizzle:red_cap_planks",
+    "sizzle:red_cap_slab",
+    "sizzle:red_cap_stairs",
+    "sizzle:red_cap_beam",
+    "sizzle:red_cap_bed",
+
+    "sizzle:rand_cap",
+    "sizzle:rand_cap_planks",
+    "sizzle:rand_cap_slab",
+    "sizzle:rand_cap_stairs",
+    "sizzle:rand_cap_beam",
+    "sizzle:rand_cap_bed",
+
+    "sizzle:pumice",
+    "sizzle:pumice_slab",
+    "sizzle:pumice_stairs",
+    "sizzle:pumice_wall",
+    "sizzle:polished_pumice",
+    "sizzle:polished_pumice_slab",
+    "sizzle:polished_pumice_stairs",
+    "sizzle:polished_pumice_wall",
+
+    "sizzle:soulstone",
+    "sizzle:soulstone_slab",
+    "sizzle:soulstone_stairs",
+    "sizzle:soulstone_wall",
+    "sizzle:soulstone_bricks",
+    "sizzle:soulstone_brick_slab",
+    "sizzle:soulstone_brick_stairs",
+    "sizzle:soulstone_brick_wall",
+    "sizzle:smooth_soulstone",
+    "sizzle:carved_soulstone",
+    "sizzle:chiseled_soulstone",
+
+    "sizzle:wither_bone_block"
+  ]
+}
