@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "sizzle:cut_glazed_soul_sandstone"
+  },
+  "result": "sizzle:cut_glazed_soul_sandstone_wall",
+  "count": 1
+}

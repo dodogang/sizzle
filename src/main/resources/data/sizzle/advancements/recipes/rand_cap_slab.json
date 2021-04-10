@@ -1,5 +1,5 @@
 {
-  "parent": "minecraft:recipes/root",
+  "parent": "sizzle:recipes/root",
   "rewards": {
     "recipes": [
       "sizzle:rand_cap_slab"

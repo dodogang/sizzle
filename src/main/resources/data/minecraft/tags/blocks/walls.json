@@ -3,7 +3,12 @@
   "values": [
     "sizzle:pumice_wall",
     "sizzle:polished_pumice_wall",
-    "sizzle:soulstone_wall",
-    "sizzle:soulstone_brick_wall"
+
+    "sizzle:soul_sandstone_wall",
+    "sizzle:cut_soul_sandstone_wall",
+    "sizzle:smooth_soul_sandstone_wall",
+    "sizzle:glazed_soul_sandstone_wall",
+    "sizzle:cut_glazed_soul_sandstone_wall",
+    "sizzle:smooth_glazed_soul_sandstone_wall"
   ]
 }

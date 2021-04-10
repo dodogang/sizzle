@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/template_wall_side_tall",
+  "textures": {
+    "wall": "sizzle:block/cut_glazed_soul_sandstone"
+  }
+}

@@ -33,7 +33,7 @@
   ],
   "depends": {
     "fabricloader": ">=0.11",
-    "chord": ">=1.4.4",
+    "chord": ">=1.5.7",
     "fabric": ">=0.32",
     "minecraft": ">=1.16.2"
   }

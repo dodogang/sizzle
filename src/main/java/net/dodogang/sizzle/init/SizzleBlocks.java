@@ -17,10 +17,9 @@ import net.minecraft.util.registry.Registry;
 
 @SuppressWarnings("unused")
 public class SizzleBlocks {
-
-    //
-    // CAP BLOCKS
-    //
+    /*
+        CAP BLOCKS
+    */
 
     public static final Block BROWN_CAP = register("brown_cap", new PillarBlock(FabricBlockSettings.copy(Blocks.OAK_WOOD)));
     public static final Block BROWN_CAP_PLANKS = register("brown_cap_planks", new Block(FabricBlockSettings.copy(Blocks.OAK_PLANKS)));
@@ -43,9 +42,9 @@ public class SizzleBlocks {
     public static final Block RAND_CAP_BEAM = registerBeam("rand_cap");
     public static final Block RAND_CAP_BED = register("rand_cap_bed", new CapBedBlock(true, FabricBlockSettings.copy(Blocks.ORANGE_BED)));
 
-    //
-    // PUMICE
-    //
+    /*
+        PUMICE
+    */
 
     public static final Block PUMICE = register("pumice",
         new Block(
@@ -63,11 +62,11 @@ public class SizzleBlocks {
     public static final Block POLISHED_PUMICE_STAIRS = register("polished_pumice_stairs", new PublicStairsBlock(POLISHED_PUMICE.getDefaultState(), FabricBlockSettings.copy(POLISHED_PUMICE)));
     public static final Block POLISHED_PUMICE_WALL = register("polished_pumice_wall", new WallBlock(FabricBlockSettings.copy(POLISHED_PUMICE)));
 
-    //
-    // SOULSTONE
-    //
+    /*
+        SOUL SANDSTONE
+    */
 
-    public static final Block SOULSTONE = register("soulstone",
+    public static final Block SOUL_SANDSTONE = register("soul_sandstone",
         new Block(
             FabricBlockSettings.of(Material.STONE, MaterialColor.GRAY)
                 .strength(1.5F, 6.0F)
@@ -75,29 +74,46 @@ public class SizzleBlocks {
                 .sounds(BlockSoundGroup.BASALT)
         )
     );
-    public static final Block SOULSTONE_SLAB = register("soulstone_slab", new SlabBlock(FabricBlockSettings.copy(SOULSTONE)));
-    public static final Block SOULSTONE_STAIRS = register("soulstone_stairs", new PublicStairsBlock(SOULSTONE.getDefaultState(), FabricBlockSettings.copy(SOULSTONE)));
-    public static final Block SOULSTONE_WALL = register("soulstone_wall", new WallBlock(FabricBlockSettings.copy(SOULSTONE)));
-    public static final Block SOULSTONE_BRICKS = register("soulstone_bricks", new Block(FabricBlockSettings.copy(SOULSTONE)));
-    public static final Block SOULSTONE_BRICK_SLAB = register("soulstone_brick_slab", new SlabBlock(FabricBlockSettings.copy(SOULSTONE_BRICKS)));
-    public static final Block SOULSTONE_BRICK_STAIRS = register("soulstone_brick_stairs", new PublicStairsBlock(SOULSTONE_BRICKS.getDefaultState(), FabricBlockSettings.copy(SOULSTONE_BRICKS)));
-    public static final Block SOULSTONE_BRICK_WALL = register("soulstone_brick_wall", new WallBlock(FabricBlockSettings.copy(SOULSTONE_BRICKS)));
-    public static final Block SMOOTH_SOULSTONE = register("smooth_soulstone", new Block(FabricBlockSettings.copy(SOULSTONE)));
-    public static final Block CARVED_SOULSTONE = register("carved_soulstone", new Block(FabricBlockSettings.copy(SOULSTONE)));
-    public static final Block CHISELED_SOULSTONE = register("chiseled_soulstone", new Block(FabricBlockSettings.copy(SOULSTONE)));
+    public static final Block CHISELED_SOUL_SANDSTONE = copy("chiseled_soul_sandstone", SOUL_SANDSTONE);
+    public static final Block CUT_SOUL_SANDSTONE = copy("cut_soul_sandstone", SOUL_SANDSTONE);
+    public static final Block SMOOTH_SOUL_SANDSTONE = copy("smooth_soul_sandstone", SOUL_SANDSTONE);
+    public static final Block SOUL_SANDSTONE_SLAB = createSlab(SOUL_SANDSTONE);
+    public static final Block CUT_SOUL_SANDSTONE_SLAB = createSlab(CUT_SOUL_SANDSTONE);
+    public static final Block SMOOTH_SOUL_SANDSTONE_SLAB = createSlab(SMOOTH_SOUL_SANDSTONE);
+    public static final Block SOUL_SANDSTONE_STAIRS = createStairs(SOUL_SANDSTONE);
+    public static final Block CUT_SOUL_SANDSTONE_STAIRS = createStairs(CUT_SOUL_SANDSTONE);
+    public static final Block SMOOTH_SOUL_SANDSTONE_STAIRS = createStairs(SMOOTH_SOUL_SANDSTONE);
+    public static final Block SOUL_SANDSTONE_WALL = createWall(SOUL_SANDSTONE);
+    public static final Block CUT_SOUL_SANDSTONE_WALL = createWall(CUT_SOUL_SANDSTONE);
+    public static final Block SMOOTH_SOUL_SANDSTONE_WALL = createWall(SMOOTH_SOUL_SANDSTONE);
 
-    //
-    // ROOTS
-    //
+    public static final Block GLAZED_SOUL_SAND = register("glazed_soul_sand", new SandBlock(10329495, FabricBlockSettings.copy(Blocks.SAND)));
+    public static final Block GLAZED_SOUL_SANDSTONE = register("glazed_soul_sandstone", new Block(FabricBlockSettings.copy(SOUL_SANDSTONE)));
+    public static final Block CHISELED_GLAZED_SOUL_SANDSTONE = copy("chiseled_glazed_soul_sandstone", GLAZED_SOUL_SANDSTONE);
+    public static final Block CUT_GLAZED_SOUL_SANDSTONE = copy("cut_glazed_soul_sandstone", GLAZED_SOUL_SANDSTONE);
+    public static final Block SMOOTH_GLAZED_SOUL_SANDSTONE = copy("smooth_glazed_soul_sandstone", GLAZED_SOUL_SANDSTONE);
+    public static final Block GLAZED_SOUL_SANDSTONE_SLAB = createSlab(GLAZED_SOUL_SANDSTONE);
+    public static final Block CUT_GLAZED_SOUL_SANDSTONE_SLAB = createSlab(CUT_GLAZED_SOUL_SANDSTONE);
+    public static final Block SMOOTH_GLAZED_SOUL_SANDSTONE_SLAB = createSlab(SMOOTH_GLAZED_SOUL_SANDSTONE);
+    public static final Block GLAZED_SOUL_SANDSTONE_STAIRS = createStairs(GLAZED_SOUL_SANDSTONE);
+    public static final Block CUT_GLAZED_SOUL_SANDSTONE_STAIRS = createStairs(CUT_GLAZED_SOUL_SANDSTONE);
+    public static final Block SMOOTH_GLAZED_SOUL_SANDSTONE_STAIRS = createStairs(SMOOTH_GLAZED_SOUL_SANDSTONE);
+    public static final Block GLAZED_SOUL_SANDSTONE_WALL = createWall(GLAZED_SOUL_SANDSTONE);
+    public static final Block CUT_GLAZED_SOUL_SANDSTONE_WALL = createWall(CUT_GLAZED_SOUL_SANDSTONE);
+    public static final Block SMOOTH_GLAZED_SOUL_SANDSTONE_WALL = createWall(SMOOTH_GLAZED_SOUL_SANDSTONE);
+
+    /*
+        ROOTS
+    */
 
     public static final Block TALL_CRIMSON_ROOTS = register("tall_crimson_roots", new TallRootsBlock(FabricBlockSettings.copy(Blocks.CRIMSON_ROOTS)));
     public static final Block TALL_WARPED_ROOTS = register("tall_warped_roots", new TallRootsBlock(FabricBlockSettings.copy(Blocks.WARPED_ROOTS)));
     public static final Block TALLER_CRIMSON_ROOTS = register("taller_crimson_roots", new TallerRootsBlock(FabricBlockSettings.copy(Blocks.CRIMSON_ROOTS)));
     public static final Block TALLER_WARPED_ROOTS = register("taller_warped_roots", new TallerRootsBlock(FabricBlockSettings.copy(Blocks.WARPED_ROOTS)));
 
-    //
-    // STANDALONE BLOCKS
-    //
+    /*
+        STANDALONE BLOCKS
+    */
 
     public static final Block BLAZE_ROD_BLOCK = register("blaze_rod_block",
         new SizzleFacingBlock(
@@ -136,6 +152,7 @@ public class SizzleBlocks {
                 .sounds(BlockSoundGroup.BONE)
         )
     );
+    public static final Block BASALT_BRICKS = register("basalt_bricks", new PillarBlock(FabricBlockSettings.copy(Blocks.BASALT)));
 
     public SizzleBlocks() {}
 
@@ -153,6 +170,29 @@ public class SizzleBlocks {
         return register(id, block, true);
     }
 
+    private static Block createSlab(Block block) {
+        return createSlab(getBlockId(block), block);
+    }
+    private static Block createSlab(String id, Block block) {
+        return register(id + "_slab", new SlabBlock(FabricBlockSettings.copy(block)));
+    }
+    private static Block createWall(Block block) {
+        return createWall(getBlockId(block), block);
+    }
+    private static Block createWall(String id, Block block) {
+        return register(id + "_wall", new WallBlock(FabricBlockSettings.copy(block)));
+    }
+    private static Block createStairs(Block block) {
+        return createStairs(getBlockId(block), block);
+    }
+    private static Block createStairs(String id, Block block) {
+        return register(id + "_stairs", new PublicStairsBlock(block.getDefaultState(), FabricBlockSettings.copy(block)));
+    }
+
+    private static Block copy(String id, Block block) {
+        return register(id, new Block(FabricBlockSettings.copy(block)));
+    }
+
     private static Block registerBeam(String id) {
         return register(
             id + "_beam",
@@ -163,5 +203,9 @@ public class SizzleBlocks {
                     .sounds(BlockSoundGroup.WOOD)
             )
         );
+    }
+
+    private static String getBlockId(Block block) {
+        return Registry.BLOCK.getId(block).getPath();
     }
 }

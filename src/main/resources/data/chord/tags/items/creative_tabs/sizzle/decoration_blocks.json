@@ -1,12 +1,33 @@
 {
   "replace": false,
   "values": [
+    "sizzle:brown_cap",
+    "sizzle:brown_cap_planks",
+    "sizzle:brown_cap_slab",
+    "sizzle:brown_cap_stairs",
+    "sizzle:brown_cap_beam",
+    "sizzle:brown_cap_bed",
+
+    "sizzle:red_cap",
+    "sizzle:red_cap_planks",
+    "sizzle:red_cap_slab",
+    "sizzle:red_cap_stairs",
+    "sizzle:red_cap_beam",
+    "sizzle:red_cap_bed",
+
+    "sizzle:rand_cap",
+    "sizzle:rand_cap_planks",
+    "sizzle:rand_cap_slab",
+    "sizzle:rand_cap_stairs",
+    "sizzle:rand_cap_beam",
+    "sizzle:rand_cap_bed",
+
     "sizzle:tall_crimson_roots",
     "sizzle:tall_warped_roots",
     "sizzle:taller_crimson_roots",
     "sizzle:taller_warped_roots",
 
     "sizzle:blaze_rod_block",
-    "sizzle:ghast_jelly_block"
+    "sizzle:magma_tongue"
   ]
 }

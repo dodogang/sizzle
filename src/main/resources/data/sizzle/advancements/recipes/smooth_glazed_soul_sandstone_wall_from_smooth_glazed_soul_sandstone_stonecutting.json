@@ -1,0 +1,32 @@
+{
+  "parent": "sizzle:recipes/root",
+  "rewards": {
+    "recipes": [
+      "sizzle:smooth_glazed_soul_sandstone_wall_from_smooth_glazed_soul_sandstone_stonecutting"
+    ]
+  },
+  "criteria": {
+    "has_smooth_glazed_soul_sandstone": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "sizzle:smooth_glazed_soul_sandstone"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "sizzle:smooth_glazed_soul_sandstone_wall_from_smooth_glazed_soul_sandstone_stonecutting"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_smooth_glazed_soul_sandstone",
+      "has_the_recipe"
+    ]
+  ]
+}

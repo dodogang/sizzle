@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "sizzle:glazed_soul_sandstone"
+    }
+  },
+  "result": {
+    "item": "sizzle:glazed_soul_sandstone_slab",
+    "count": 6
+  }
+}

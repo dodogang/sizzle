@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab_top",
+  "textures": {
+    "bottom": "sizzle:block/soul_sandstone_top",
+    "top": "sizzle:block/soul_sandstone_top",
+    "side": "sizzle:block/soul_sandstone_top"
+  }
+}

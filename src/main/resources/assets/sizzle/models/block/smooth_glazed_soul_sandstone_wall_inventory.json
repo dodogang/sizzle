@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/wall_inventory",
+  "textures": {
+    "wall": "sizzle:block/glazed_soul_sandstone_top"
+  }
+}

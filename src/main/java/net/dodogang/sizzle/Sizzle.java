@@ -3,9 +3,7 @@ package net.dodogang.sizzle;
 import com.google.common.collect.ImmutableList;
 import me.andante.chord.item.item_group.AbstractTabbedItemGroup;
 import me.andante.chord.item.item_group.ItemGroupTab;
-import net.dodogang.sizzle.init.SizzleBlocks;
-import net.dodogang.sizzle.init.SizzleItems;
-import net.dodogang.sizzle.init.SizzleParticles;
+import net.dodogang.sizzle.init.*;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.loot.v1.event.LootTableLoadingCallback;
 import net.minecraft.entity.EntityType;
@@ -29,8 +27,8 @@ public class Sizzle implements ModInitializer {
         protected List<ItemGroupTab> initTabs() {
             return ImmutableList.of(
                 createTab(SizzleBlocks.BROWN_CAP, "building_blocks"),
-                createTab(SizzleBlocks.BLAZE_ROD_BLOCK, "decoration_blocks"),
-                createTab(SizzleBlocks.MAGMA_TONGUE, "miscellaneous")
+                createTab(SizzleBlocks.RED_CAP, "decoration_blocks"),
+                createTab(SizzleItems.WITHER_BONE_MEAL, "miscellaneous")
             );
         }
 

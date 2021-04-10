@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#  ",
+    "## ",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "sizzle:cut_glazed_soul_sandstone"
+    }
+  },
+  "result": {
+    "item": "sizzle:cut_glazed_soul_sandstone_stairs",
+    "count": 4
+  }
+}

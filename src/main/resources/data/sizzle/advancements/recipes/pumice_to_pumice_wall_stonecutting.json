@@ -1,5 +1,5 @@
 {
-  "parent": "minecraft:recipes/root",
+  "parent": "sizzle:recipes/root",
   "rewards": {
     "recipes": [
       "sizzle:pumice_to_pumice_wall_stonecutting"

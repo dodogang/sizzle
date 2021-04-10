@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "sizzle:block/glazed_soul_sandstone_top",
+    "side": "sizzle:block/chiseled_glazed_soul_sandstone"
+  }
+}

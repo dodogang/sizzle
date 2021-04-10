@@ -1,8 +1,7 @@
 {
   "replace": false,
   "values": [
-    "sizzle:magma_tongue",
-
+    "sizzle:ghast_jelly_block",
     "sizzle:wither_bone",
     "sizzle:wither_bone_meal"
   ]

@@ -1,0 +1,32 @@
+{
+  "parent": "sizzle:recipes/root",
+  "rewards": {
+    "recipes": [
+      "sizzle:glazed_soul_sandstone_wall"
+    ]
+  },
+  "criteria": {
+    "has_glazed_soul_sandstone": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "sizzle:glazed_soul_sandstone"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "sizzle:glazed_soul_sandstone_wall"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_glazed_soul_sandstone",
+      "has_the_recipe"
+    ]
+  ]
+}

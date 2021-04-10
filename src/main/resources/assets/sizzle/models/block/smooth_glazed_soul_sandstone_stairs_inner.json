@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/inner_stairs",
+  "textures": {
+    "bottom": "sizzle:block/glazed_soul_sandstone_top",
+    "top": "sizzle:block/glazed_soul_sandstone_top",
+    "side": "sizzle:block/glazed_soul_sandstone_top"
+  }
+}
