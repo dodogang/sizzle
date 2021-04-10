@@ -1,8 +1,8 @@
 package net.dodogang.sizzle;
 
 import com.google.common.collect.ImmutableList;
-import me.andante.chord.client.gui.itemgroup.AbstractTabbedItemGroup;
-import me.andante.chord.client.gui.itemgroup.ItemGroupTab;
+import me.andante.chord.item.item_group.AbstractTabbedItemGroup;
+import me.andante.chord.item.item_group.ItemGroupTab;
 import net.dodogang.sizzle.init.SizzleBlocks;
 import net.dodogang.sizzle.init.SizzleItems;
 import net.dodogang.sizzle.init.SizzleParticles;
