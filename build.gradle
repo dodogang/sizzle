@@ -1,5 +1,5 @@
 plugins {
-    id 'fabric-loom' version '0.6-SNAPSHOT'
+    id 'fabric-loom' version '0.7-SNAPSHOT'
     id 'maven-publish'
 }
 
@@ -10,11 +10,7 @@ archivesBaseName = project.archives_base_name
 group = project.maven_group
 
 if (System.env.CI == "true") {
-    def branch
-    branch = System.env.GITHUB_REF
-    branch = branch.substring(branch.lastIndexOf("/") + 1)
-
-    version = "${project.mod_version}+a${System.env.GITHUB_RUN_NUMBER}.${branch}-fabric"
+    version = "${project.mod_version}+a${System.env.GITHUB_RUN_NUMBER}.${project.minecraft_version}-fabric"
 } else {
     version = "${project.mod_version}+${project.minecraft_version}-fabric"
 }
@@ -28,7 +24,6 @@ repositories {
     maven { url = "https://maven.shadew.net" }
     maven { url = "https://maven.dblsaiko.net" }
     maven { url = "https://server.bbkr.space/artifactory/libs-release" }
-    maven { url = "https://repo.repsy.io/mvn/gandiber/geckolib" }
 }
 
 dependencies {
@@ -39,7 +34,12 @@ dependencies {
     modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_api_version}"
 
     // COMPATIBILITY
-    // ---
+
+    modImplementation ("grondag:canvas-mc116:1.0.+") {
+        exclude group: "net.fabricmc"
+        exclude group: "net.fabricmc.fabric-api"
+        exclude group: "me.shedaniel.cloth"
+    }
 
     // LIBS
     modImplementation "com.github.andantedevs:chord:${project.chord_version}"
@@ -49,12 +49,6 @@ dependencies {
 
     modImplementation "me.shedaniel.cloth:cloth-config-fabric:${project.cloth_config_version}"
     include "me.shedaniel.cloth:cloth-config-fabric:${project.cloth_config_version}"
-
-    modImplementation ("grondag:canvas-mc116:1.0.+") {
-        exclude group: "net.fabricmc"
-        exclude group: "net.fabricmc.fabric-api"
-        exclude group: "me.shedaniel.cloth"
-    }
 
     // RUNTIME UTILS
     modRuntime ("com.github.joaoh1:OkZoomer:${project.okzoomer_version}") { exclude ( group: "me.shedaniel.cloth" ) }
