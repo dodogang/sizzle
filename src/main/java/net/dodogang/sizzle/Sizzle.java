@@ -1,9 +1,11 @@
 package net.dodogang.sizzle;
 
 import com.google.common.collect.ImmutableList;
+import me.andante.chord.client.gui.item_group.ItemGroupTab;
 import me.andante.chord.item.item_group.AbstractTabbedItemGroup;
-import me.andante.chord.item.item_group.ItemGroupTab;
-import net.dodogang.sizzle.init.*;
+import net.dodogang.sizzle.init.SizzleBlocks;
+import net.dodogang.sizzle.init.SizzleItems;
+import net.dodogang.sizzle.init.SizzleParticles;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.loot.v1.event.LootTableLoadingCallback;
 import net.minecraft.entity.EntityType;
